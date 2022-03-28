@@ -1,12 +1,12 @@
 import './App.css';
+import HomePageContentAndFooter from './components/HomePageContetntAndFooter/HomePageContentAndFooter';
 
 function App() {
   return (
     <div className="App">
       {
-        <div>HELLO LUSINE<div/>
-      /*<HomePageHeader />
-      <HomePageContentAndFooter />*/
+      // <HomePageHeader />
+      <HomePageContentAndFooter />
       }
     </div>
   );

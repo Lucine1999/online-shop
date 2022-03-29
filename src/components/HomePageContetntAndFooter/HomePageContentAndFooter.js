@@ -1,9 +1,9 @@
-import OutlinedCard from "./OutlinedCard";
-import SimplePaper from "./SimplePaper";
-import MiniCards from "./MiniCard";
-import OfferDiv from "./OfferForSummery";
-import Brands from "./Brands";
-import Footer from "./Footer";
+import OutlinedCard from "./components/OutlinedCard";
+import SimplePaper from "./components/SimplePaper";
+import MiniCards from "./components/MiniCard";
+import OfferDiv from "./components/OfferForSummery";
+import Brands from "./components/Brands";
+import Footer from "./components/Footer";
 
 function HomePageContentAndFooter() {
     return (

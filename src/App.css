@@ -9,7 +9,7 @@ li {
 }
 
 .container {
-    max-width: 1130px;
+    max-width: 1170px;
     margin: auto;
 }
 
@@ -34,7 +34,7 @@ li {
 }
 
 .mini-card {
-    min-width: 250px;
+    min-width: 220px;
     height: 50px;
     display: flex;
     justify-content: space-between;

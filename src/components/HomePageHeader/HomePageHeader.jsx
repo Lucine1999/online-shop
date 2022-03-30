@@ -11,7 +11,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import Badge from '@mui/material/Badge';
-import { AccountCircle, Favorite, Notifications, Search, ShoppingCart } from '@mui/icons-material';
+import { AccountCircle, Favorite, Search, ShoppingCart } from '@mui/icons-material';
 
 const pages = ['Products'];
 const settings = ['Profile', 'Account', 'Logout'];

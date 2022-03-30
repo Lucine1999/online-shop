@@ -1,0 +1,19 @@
+.items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 800px;
+    margin: auto;
+}
+
+.product-list{
+    display: flex;
+    flex-direction: column;
+    margin: auto; 
+}
+
+.product-list-page{
+    display: flex;
+    justify-content: space-between;
+}
+

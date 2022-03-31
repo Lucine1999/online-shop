@@ -1,16 +1,14 @@
+import Navbar from './components/Navbar';
+import Homepagecarusel from './components/main-page/HomePageCarousel';
 import './App.css';
-import Homepagecarusel from './components/HomePageHeader/HomePageCarousel';
-import HomePageHeader from './components/HomePageHeader/HomePageHeader';
+
+
 
 function App() {
   return (
     <div className="App">
-      <HomePageHeader />
+      <Navbar />
       <Homepagecarusel />
-      {
-      /*
-      <HomePageContentAndFooter />*/
-      }
     </div>
   );
 }

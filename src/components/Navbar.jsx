@@ -16,7 +16,7 @@ import { AccountCircle, Favorite, Search, ShoppingCart } from '@mui/icons-materi
 const pages = ['Products'];
 const settings = ['Profile', 'Account', 'Logout'];
 
-const HomePageHeader = () => {
+const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -153,4 +153,4 @@ const HomePageHeader = () => {
     </AppBar>
   );
 };
-export default HomePageHeader;
+export default Navbar;

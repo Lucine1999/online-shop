@@ -1,8 +1,8 @@
-import MiniCards from "../components/MiniCard";
-import OfferDiv from "../components/OfferForSummery";
-import FavoriteCards from "../components/FavoriteCards";
-import Brands from "../components/Brands";
-import Footer from "../components/Footer";
+import MiniCards from "../components/main-home-page/MiniCard";
+import OfferDiv from "../components/main-home-page/OfferForSummery";
+import FavoriteCards from "../components/main-home-page/FavoriteCards";
+import Brands from "../components/main-home-page/Brands";
+import Footer from "../components/footer/Footer";
 
 
 function HomePageContentAndFooter() {

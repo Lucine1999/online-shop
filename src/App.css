@@ -14,16 +14,17 @@ li {
 }
 
 .cards-container {
-    margin-top: 5px;
+    margin-top: 10px;
     display: flex;
     justify-content: space-between;
-    width: inherit;
     flex-wrap: wrap;
 }
 
 .offer-div {
     width: 100%;
     overflow: hidden;
+    border-radius: 10px;
+    max-height: 550px;
 }
 
 .offer-img:hover,
@@ -68,20 +69,19 @@ li {
     background-color: #f5f4f4;
 }
 
-
 .ul-heder {
     font-weight: 100;
     margin-bottom: 25px;
 }
 
-.footer-container{
+.footer-container {
     line-height: 200%;
     color: #494848;
     padding-top: 85px;
     padding-bottom: 45px;
 }
 
-.icons{
+.icons {
     margin-top: 20px;
     cursor: pointer;
 }

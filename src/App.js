@@ -1,5 +1,5 @@
 import './App.css';
-import HomePageContentAndFooter from './components/HomePageContetntAndFooter/HomePageContentAndFooter';
+import HomePageContentAndFooter from './pages/HomePageContentAndFooter';
 
 function App() {
   return (

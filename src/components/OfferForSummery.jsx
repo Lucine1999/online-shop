@@ -11,7 +11,7 @@ function divModel(img) {
 function OfferDiv() {
     return (
         <div className="cards-container">
-            {divModel('https://template.hasthemes.com/destry/destry/assets/images/banner/big-banner.jpg')}
+            {divModel('https://oir.mobi/uploads/posts/2019-11/thumbs/1575071776_vjazanye-igrushki-oboi-5.jpg')}
         </div>
     )
 }

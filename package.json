@@ -6,15 +6,10 @@
     "@emotion/react": "^11.8.2",
     "@emotion/styled": "^11.8.1",
     "@mui/icons-material": "^5.5.1",
-<<<<<<< HEAD
     "@mui/material": "^5.5.2",
     "@mui/styled-engine-sc": "^5.5.2",
     "@mui/styles": "^5.5.1",
-=======
-    "@mui/material": "^5.5.3",
-    "@mui/styled-engine-sc": "^5.5.2",
     "@react-navigation/stack": "^6.1.1",
->>>>>>> product-list-page
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",

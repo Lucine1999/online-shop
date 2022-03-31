@@ -1,6 +1,5 @@
-import BoxComponent from "./BoxComponent";
-import PaginationRounded from "./pagination";
-
+import BoxComponent from "../main/BoxComponent";
+import PaginationRounded from "../main/pagination";
 
 
 function ListItem() {

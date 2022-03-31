@@ -1,6 +1,6 @@
-import ListItem from '../components/ListItem';
-import FilterByCost from '../components/filterByCost';
-import Catalog from '../components/catalog';
+import ListItem from '../components/main/ListItem';
+import FilterByCost from '../components/main/filterByCost';
+import Catalog from '../components/main/catalog';
 
 
 function ProductListPage() {

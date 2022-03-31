@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+li {
+    list-style: none;
+}
+
+.container {
+    max-width: 1170px;
+    margin: auto;
+}
+
+.cards-container {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.offer-div {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+    max-height: 550px;
+}
+
+.offer-img:hover,
+.logo-img:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: all 0.5s ease 0s;
+}
+
+.mini-card {
+    min-width: 220px;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.mini-cart-img:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+.mini-card-text {
+    padding: 10px;
+}
+
+.break {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    border-top: 1px solid #a1a0a0;
+}
+.logo-img {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer {
+    background-color: #f5f4f4;
+}
+
+.ul-heder {
+    font-weight: 100;
+    margin-bottom: 25px;
+}
+
+.footer-container {
+    line-height: 200%;
+    color: #494848;
+    padding-top: 85px;
+    padding-bottom: 45px;
+}
+
+.icons {
+    margin-top: 20px;
+    cursor: pointer;
+}

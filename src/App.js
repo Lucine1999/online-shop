@@ -1,14 +1,15 @@
-import './App.css';
+import "./App.css";
+import HomePageContentAndFooter from "./pages/HomePageContentAndFooter";
 
 function App() {
   return (
     <div className="App">
-        <div>HELLO LUSINE</div>
-      {/* <HomePageHeader />
-      <HomePageContentAndFooter /> */}
-      
+      {
+        // <HomePageHeader />
+        <HomePageContentAndFooter />
+      }
     </div>
-  )
+  );
 }
 
 export default App;

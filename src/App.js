@@ -1,16 +1,22 @@
-import Navbar from './components/Navbar';
-import Homepagecarusel from './components/main-page/HomePageCarousel';
-import './App.css';
-
-
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.css";
+import HomePageContentAndFooter from "./pages/HomePageContentAndFooter";
+import ProductListPage from "./pages/productListPage";
+import Homepagecarusel from "./components/main-page/HomePageCarousel";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
-    <div className="App">
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HomePageContentAndFooter />} />
+          <Route path="/products" element={<ProductListPage />} />
+        </Routes>
+      </BrowserRouter>
       <Navbar />
       <Homepagecarusel />
-    </div>
+    </>
   );
 }
-
 export default App;

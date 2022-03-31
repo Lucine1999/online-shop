@@ -9,7 +9,6 @@ function HomePageContentAndFooter() {
     return (
         <>
             <div className="main container">
-                {/* <OutlinedCard /> */}
                 <FavoriteCards />
                 <br />
                 <MiniCards />

@@ -157,4 +157,9 @@
     .singleProductDescription {
         margin-left: 0px;
     }
+    .carouselSinglePage {
+        padding-right: 10px;
+        padding-left: 10px;
+        flex: 0 0 400px;
+    }
 }

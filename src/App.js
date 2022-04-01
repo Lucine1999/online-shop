@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import Login from './components/login';
-import Signup from './components/signup';
+import Login from './components/Login';
+import Signup from './components/Signup';
 function App() {
   return (
     <div className="App">

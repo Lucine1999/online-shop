@@ -1,7 +1,6 @@
 import ListItem from '../components/main-product-List/ListItem';
 import FilterByCost from '../components/main-product-List/filterByCost';
 import Catalog from '../components/main-product-List/catalog';
-import Footer from '../components/footer/Footer';
 
 
 function ProductListPage() {
@@ -14,7 +13,6 @@ function ProductListPage() {
         </div>
         <ListItem />
       </main>
-      <Footer />
     </>
   );
 }

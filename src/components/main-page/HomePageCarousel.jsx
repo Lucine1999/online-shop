@@ -15,7 +15,8 @@ const Homepagecarusel = () => {
                 images.map(el => {
                     return (
                     <div key={el}>
-                        <img style={{maxHeight: '800px'}} src={el} alt={el} />
+                        <img style={{maxHeight: '400px', paddingTop: '10px'}} src={el} alt={el} />
+                        <legend>asdasd</legend>
                     </div>
                 )})
             }

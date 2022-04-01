@@ -15,10 +15,15 @@ const SingleProductDescription = () => {
                     product.quantity
                 </span>
                 <div class="productPrice-wrapper">
-                    <span class="price__text">product.price</span>
+                    <span class="price__text">product.price <span className='amd_container'>դր.</span></span>
+                    <div class="product__price-note">price for 1 դր.</div>
                 </div>
-                <Button size='large' variant='contained'>ADD</Button>
-                <div class="info__tab"><span>Մանրամասներ</span></div>
+                <Button style={{marginBottom: "20px", paddingLeft: "50px", paddingRight: "50px"}} size='large' variant='contained'>ADD</Button>
+                <div class="info__tab">
+                    <div className='info__tab-container'>
+                        <span class="info__tab-label">Մանրամասներ</span>
+                    </div>
+                </div>
                 <div class="info__tabs-body">
                     <div class="info__detail-list">
                         <div class="info__detail-item">

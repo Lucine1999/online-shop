@@ -28,6 +28,7 @@
     min-width: 100px;
     padding-right: 50px;
     padding-left: 50px;
+    flex: 0 0 640px;
 
 }
 
@@ -56,12 +57,16 @@
     transition: max-height .15s;
     font-size: 16px;
     line-height: 26px;
+    margin-bottom: 20px;
+
 }
 
 .product_avelability {
     color: #3abd61;
     margin-bottom: 20px;
     line-height: 16px;
+    margin-bottom: 20px;
+
 }
 
 .productPrice-wrapper {
@@ -69,6 +74,8 @@
     margin-bottom: 23px;
     cursor: pointer;
     margin-top: 14px;
+    margin-bottom: 20px;
+
 }
 
 .price__text {
@@ -78,15 +85,39 @@
     margin: 0px 14px 0 0;
 }
 
-.info__tab{
+.product__price-note {
+    font-size: 14px;
+    line-height: 17px;
+    color: #8d9299;
+    margin-top: 8px;
+}
+
+.amd_container {
+    font-size: 14px;
+}
+
+
+.info__tab {
     margin-top: 14px;
     padding-bottom: 7px;
     margin-right: 28px;
-    color: #8d9299;
     font-weight: 600;
     cursor: pointer;
-    border-bottom: 3px solid #fff;
-    transition: border-bottom-color .15s linear,color .15s linear;
+}
+
+.info__tab-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    overflow: auto;
+    height: 100%;
+}
+
+.info__tab-label {
+    color: #1a2433;
+    border-bottom: 3px solid #ee3338;
+    white-space: nowrap;
+    padding: 5px;
 }
 
 .info__detail-item{

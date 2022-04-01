@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+body {
+    font: 400 14px/22px "Open Sans",Arial,Helvetica,sans-serif;
+}
+
 li {
     list-style: none;
 }
@@ -79,6 +83,9 @@ li {
 .product-list-page{
     display: flex;
     justify-content: space-between;
+    margin-top: 20px;
+    margin-left: 10px;
+
 }
 
 .footer {

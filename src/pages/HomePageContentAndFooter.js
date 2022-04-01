@@ -2,13 +2,14 @@ import MiniCards from "../components/main-home-page/MiniCard";
 import OfferDiv from "../components/main-home-page/OfferForSummery";
 import FavoriteCards from "../components/main-home-page/FavoriteCards";
 import Brands from "../components/main-home-page/Brands";
-import Footer from "../components/footer/Footer";
+import Homepagecarusel from "../components/main-page/HomePageCarousel";
 
 
 function HomePageContentAndFooter() {
     return (
         <>
             <div className="main container">
+                <Homepagecarusel />
                 <FavoriteCards />
                 <br />
                 <MiniCards />
@@ -18,7 +19,6 @@ function HomePageContentAndFooter() {
                     <Brands />
                 </div>
             </div>
-            <Footer />
         </>
     );
 }

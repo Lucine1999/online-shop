@@ -12,16 +12,21 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import Badge from '@mui/material/Badge';
 import { AccountCircle, Favorite, Search, ShoppingCart } from '@mui/icons-material';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import {auth} from '../firebase';
+import { useSelector, useDispatch } from 'react-redux';
+import { logout, selectUser } from '../features/users/usersSlice';
 
-const user = null;
-
-const pages = ['Products'];
-const settings = user ? ['Profile', 'Log Out'] : ['Log In', 'Sign Up'];
 
 const Navbar = () => {
+  const user = useSelector(selectUser);
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+  const pages = ['Products'];
+  const settings = user ? ['Profile', 'Log Out'] : ['Log In', 'Sign Up'];
+
+  const dispatch = useDispatch();
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -36,6 +41,11 @@ const Navbar = () => {
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
+  };
+
+  const logoutOfApp = () => {
+    dispatch(logout());
+    auth.signOut();
   };
 
   return (
@@ -146,7 +156,17 @@ const Navbar = () => {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu} component={Link} to={`/${setting.toLowerCase().replace(/\s/g, '')}`}>
+                //setting.toLowerCase().replace(/\s/g, '') === 'logout') ?  logoutOfApp() : null;
+                <MenuItem 
+                  key={setting} 
+                  onClick={() => {
+                    handleCloseUserMenu();
+                    if (setting.toLowerCase().replace(/\s/g, '') === 'logout') {
+                      logoutOfApp();
+                    }
+                  }} 
+                  component={Link} to={`${setting !== 'Log Out' ? '/' + setting.toLowerCase().replace(/\s/g, '') : '/'}`}
+                >
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}

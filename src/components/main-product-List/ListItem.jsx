@@ -44,7 +44,7 @@ function ListItem() {
     return (
         <main className="product-list">
             <div className="items">
-                {obj.map((value) => BoxComponent(value))}
+                {obj.map((value, i) => BoxComponent(value, i))}
             </div>
             <PaginationRounded />
         </main>

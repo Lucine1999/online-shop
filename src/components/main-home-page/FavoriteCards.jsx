@@ -17,7 +17,7 @@ function FavoriteCards() {
     return (
 
         <div className="cards-container">
-            {obj.map((value) => CardHomePage(value))}
+            {obj.map((value, i) => CardHomePage(value, i))}
         </div>
 
     );

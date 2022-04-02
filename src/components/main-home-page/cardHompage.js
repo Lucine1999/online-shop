@@ -9,9 +9,9 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 // import FavoriteIcon from '@mui/icons-material/Favorite'; 
 
 
-function CardHomePage(obj) {
+function CardHomePage(obj, key) {
   return (
-    <Card key={obj.key} sx={{ maxWidth: 300, margin: 'auto' }}>
+    <Card key={key} sx={{ maxWidth: 300, margin: 'auto' }}>
       <CardActionArea>
         <CardMedia
           component="img"

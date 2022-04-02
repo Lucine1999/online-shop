@@ -6,11 +6,12 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import {Link} from 'react-router-dom';
 // import FavoriteIcon from '@mui/icons-material/Favorite'; 
 
-function BoxComponent(obj) {
+function BoxComponent(obj, key) {
   return (
-    <Card key={obj.key} sx={{ maxWidth: 300, margin: 'auto', marginBottom: 3 }}>
+    <Card key={key} sx={{ maxWidth: 300, margin: 'auto', marginBottom: 3 }} component={Link} to={`/products/${key}`}>
       <CardActionArea>
         <CardMedia
           component="img"

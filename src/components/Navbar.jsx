@@ -12,9 +12,12 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import Badge from '@mui/material/Badge';
 import { AccountCircle, Favorite, Search, ShoppingCart } from '@mui/icons-material';
+import {Link} from 'react-router-dom';
+
+const user = null;
 
 const pages = ['Products'];
-const settings = ['Profile', 'Account', 'Logout'];
+const settings = user ? ['Profile', 'Log Out'] : ['Log In', 'Sign Up'];
 
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -42,8 +45,8 @@ const Navbar = () => {
           <Typography
             variant="h6"
             noWrap
-            component="div"
-            sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
+            component={Link} to="/"
+            sx={{ mr: 2, textDecoration: "none", color: "black", display: { xs: 'none', md: 'flex' } }}
           >
             LOGO
           </Typography>
@@ -78,7 +81,7 @@ const Navbar = () => {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <MenuItem key={page} onClick={handleCloseNavMenu} component={Link} to={`/${page.toLowerCase()}`}>
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
               ))}
@@ -98,6 +101,7 @@ const Navbar = () => {
                 key={page}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'black', display: 'block' }}
+                component={Link} to={`/${page.toLowerCase()}`}
               >
                 {page}
               </Button>
@@ -108,13 +112,13 @@ const Navbar = () => {
                 <Search />  
             </IconButton>
 
-            <IconButton size='large'>
-                <Badge badgeContent={5} color="error">
+            <IconButton size='large' component={Link} to="/cart"> 
+                <Badge badgeContent={5} color="error" >
                     <ShoppingCart />
                 </Badge>
             </IconButton>
 
-            <IconButton size='large'>
+            <IconButton size='large' component={Link} to="/favorites">
                 <Badge badgeContent={10} color="error">
                     <Favorite />
                 </Badge>  
@@ -142,7 +146,7 @@ const Navbar = () => {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                <MenuItem key={setting} onClick={handleCloseUserMenu} component={Link} to={`/${setting.toLowerCase().replace(/\s/g, '')}`}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}

@@ -3,7 +3,15 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 
+
+
 function Footer() {
+
+    const socialIconsStyle={
+        marginRight:"10px",
+        marginLeft:"10px"
+    }
+
     return (
 
         <footer className="footer ">
@@ -14,13 +22,10 @@ function Footer() {
                     <li><span>Call to:</span> (012) 800 456 789-987</li>
                     <li><span>Mail to:</span> yourmail@example.com</li>
                     <li className='icons'>
-                        <FacebookIcon />
-                        <span/>
-                        <TwitterIcon />
-                        <span/>
-                        <InstagramIcon />
-                        <span/>
-                        <YouTubeIcon />
+                        <FacebookIcon style={socialIconsStyle} />
+                        <TwitterIcon style={socialIconsStyle} />
+                        <InstagramIcon style={socialIconsStyle} />
+                        <YouTubeIcon style={socialIconsStyle} />
                     </li>
                 </ul>
                 <ul>

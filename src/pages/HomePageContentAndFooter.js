@@ -7,8 +7,8 @@ import Homepagecarusel from "../components/main-page/HomePageCarousel";
 function HomePageContentAndFooter() {
   return (
     <>
+      <Homepagecarusel />
       <div className="main container">
-        <Homepagecarusel />
         <FavoriteCards />
         <MiniCards />
         <OfferDiv />

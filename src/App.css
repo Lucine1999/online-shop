@@ -20,15 +20,28 @@ li {
 .cards-container {
     margin-top: 10px;
     display: flex;
+    /* justify-content: center; */
     justify-content: space-between;
     flex-wrap: wrap;
+}
+
+@media(max-width:580px){
+    .cards-container {
+        justify-content: flex-start;
+        margin-left: 10px;
+        margin-right: 10px;
+    }   
+    .cards-container .brand-logo{
+        width: 100px;
+        margin-bottom: 10px;
+    }   
 }
 
 .offer-div {
     width: 100%;
     overflow: hidden;
     border-radius: 10px;
-    max-height: 550px;
+    height: 300px;
 }
 
 .offer-img:hover,
@@ -63,7 +76,7 @@ li {
     border-top: 1px solid #a1a0a0;
 }
 .logo-img {
-    width: 80%;
+    width: 100%;
     margin: auto;
 }
 .items {
@@ -106,5 +119,8 @@ li {
 
 .icons {
     margin-top: 20px;
+    cursor: pointer;
+}
+button{
     cursor: pointer;
 }

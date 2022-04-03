@@ -1,12 +1,12 @@
 import React from 'react';
 import { Button } from '@mui/material';
 
-const SingleProductDescription = () => {
+const SingleProductDescription = ({ productName, productPrice }) => {
     return (
         <div className='singleProductDescription'>
             <form action="">
                 <h1 className='singleProductTitle'>
-                    product.name
+                {productName}
                 </h1>
                 <p className='singleProductSubtitle'>
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa, impedit vel laudantium fugit soluta assumenda blanditiis eum nostrum debitis, id est placeat quam numquam accusamus aspernatur neque autem labore natus!
@@ -15,8 +15,8 @@ const SingleProductDescription = () => {
                     product.quantity
                 </span>
                 <div className="productPrice-wrapper">
-                    <span className="price__text">product.price <span className='amd_container'>դր.</span></span>
-                    <div className="product__price-note">price for 1 դր.</div>
+                    <span className="price__text">{productPrice}<span className='amd_container'>դր.</span></span>
+                    <div className="product__price-note"></div>
                 </div>
                 <Button style={{marginBottom: "20px", paddingLeft: "50px", paddingRight: "50px"}} size='large' variant='contained'>ADD</Button>
                 <div className="info__tab">

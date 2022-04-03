@@ -8,17 +8,31 @@ import {
   signOut,
 } from "firebase/auth";
 
+import {
+  getFirestore,
+  collection,
+  doc,
+  onSnapshot,
+  setDoc,
+  getDocs,
+  updateDoc,
+  where,
+} from "firebase/firestore";
+
 const firebaseConfig = {
-  apiKey: "AIzaSyCHxeTHN-e9XMcr_IhjU_5FXlVmCxoMePQ",
-  authDomain: "my-first-project-7f155.firebaseapp.com",
-  projectId: "my-first-project-7f155",
-  storageBucket: "my-first-project-7f155.appspot.com",
-  messagingSenderId: "493071670907",
-  appId: "1:493071670907:web:3f18b6d89bc2658efe4cde",
+  apiKey: "AIzaSyAf-5wgUUG_8nEQv--NYk6RAee4_0hGZqE",
+  authDomain: "online-shop-543a4.firebaseapp.com",
+  projectId: "online-shop-543a4",
+  storageBucket: "online-shop-543a4.appspot.com",
+  messagingSenderId: "1070224139707",
+  appId: "1:1070224139707:web:f09bc06cfaaa2bf51b109e"
+
 };
 
 initializeApp(firebaseConfig);
+
 const auth = getAuth();
+const db = getFirestore();
 
 export {
   auth,
@@ -27,4 +41,12 @@ export {
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut,
+  db,
+  collection,
+  doc,
+  onSnapshot,
+  setDoc,
+  getDocs,
+  updateDoc,
+  where
 };

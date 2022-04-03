@@ -1,50 +1,15 @@
 import BoxComponent from "../main-product-List/BoxComponent";
 import PaginationRounded from "../main-product-List/pagination";
-
+import {useSelector} from "react-redux";
+import { selectProducts } from "../../features/products/productsSlice";
 
 function ListItem() {
-    const obj = [{
-        img: `https://mobilelords.ru/wp-content/uploads/vyazanye-igrushki-38.jpg`,
-        header: 'first item',
-        body: 'text for first item'
-    },
-    {
-        img: `https://mobilelords.ru/wp-content/uploads/vyazanye-igrushki-38.jpg`,
-        header: 'first item',
-        body: 'text for first item'
-    },
-    {
-        img: `https://mobilelords.ru/wp-content/uploads/vyazanye-igrushki-38.jpg`,
-        header: 'first item',
-        body: 'text for first item'
-    }, {
-        img: `https://mobilelords.ru/wp-content/uploads/vyazanye-igrushki-38.jpg`,
-        header: 'first item',
-        body: 'text for first item'
-    }, {
-        img: `https://mobilelords.ru/wp-content/uploads/vyazanye-igrushki-38.jpg`,
-        header: 'first item',
-        body: 'text for first item'
-    },
-    {
-        img: `https://mobilelords.ru/wp-content/uploads/vyazanye-igrushki-38.jpg`,
-        header: 'first item',
-        body: 'text for first item'
-    },
-    {
-        img: `https://mobilelords.ru/wp-content/uploads/vyazanye-igrushki-38.jpg`,
-        header: 'first item',
-        body: 'text for first item'
-    }, {
-        img: `https://mobilelords.ru/wp-content/uploads/vyazanye-igrushki-38.jpg`,
-        header: 'first item',
-        body: 'text for first item'
-    }]
-
+    const products = useSelector(selectProducts);
     return (
         <main className="product-list">
+            
             <div className="items">
-                {obj.map((value, i) => BoxComponent(value, i))}
+                {products ? products.map((value) => BoxComponent(value)) : null}
             </div>
             <PaginationRounded />
         </main>

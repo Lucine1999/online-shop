@@ -7,7 +7,8 @@ import SingleProduct from "./pages/SingleProduct";
 import Footer from "./components/footer/Footer";
 import { useDispatch } from "react-redux";
 import { login, logout } from "./features/users/usersSlice";
-import { auth, onAuthStateChanged } from "./firebase";
+import { getProducts } from "./features/products/productsSlice";
+import { auth, onAuthStateChanged, db, collection, getDocs } from "./firebase";
 //import MainLayout from "./components/layout/MainLayout";
 import LogIn from "./pages/LogIn";
 import SignUp from "./pages/SignUp";
@@ -17,9 +18,18 @@ import "./App.css";
 
 function App() {
   const dispatch = useDispatch();
+
+  const productsCollectionRef = collection(db, "products");
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    getDocs(productsCollectionRef).then((products) => {
+      dispatch(getProducts(products.docs.map((doc) => ({ ...doc.data(), id: doc.id }))));
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+
     onAuthStateChanged(auth, (userAuth) => {
       if (userAuth) {
         setLoading(false);

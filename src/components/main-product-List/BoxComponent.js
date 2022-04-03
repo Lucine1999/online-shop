@@ -9,22 +9,22 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import {Link} from 'react-router-dom';
 // import FavoriteIcon from '@mui/icons-material/Favorite'; 
 
-function BoxComponent(obj, key) {
+function BoxComponent(obj) {
   return (
-    <Card key={key} sx={{ maxWidth: 300, margin: 'auto', marginBottom: 3 }} component={Link} to={`/products/${key}`}>
+    <Card key={obj.id} sx={{ maxWidth: 300, margin: 'auto', marginBottom: 3 }} component={Link} to={`/products/${obj.id}`}>
       <CardActionArea>
         <CardMedia
-          component="img"
           height="200"
+          component="img"
           image={obj.img}
           alt="image does not exist"
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            {obj.header}
+          <Typography gutterBottom variant="h6" component="div">
+            {obj.name}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            {obj.body}
+            {obj.price + " " + obj.currency}
           </Typography>
           <Typography>
             <FavoriteBorderIcon />

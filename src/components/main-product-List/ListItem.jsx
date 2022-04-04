@@ -13,15 +13,17 @@ function ListItem() {
     const [previusPage, setPreviusPage] = useState(parseInt(location.search?.split('=')[1] - 1 || 0));
     const [currentPage, setCurrentPage] = useState(parseInt(location.search?.split('=')[1] || 1));
 
-    const productCount = 1;
+    const productCount = 2;
+
+    const wishlistItems = useSelector(selectWishlist);
+    const user = useSelector(selectUser);
+    const user_id = user ? user.uid : 0;
 
     useEffect(() => {
         setPreviusPage(currentPage -1)
       }, [currentPage])
 
-    const wishlistItems = useSelector(selectWishlist);
-    const user = useSelector(selectUser);
-    const user_id = user ? user.uid : 0;
+
 
     return (
         <main className="product-list">

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
@@ -28,6 +28,16 @@ function SignUp() {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    return () => {
+      setFirstName("");
+      setLastName("");
+      setEmail("");
+      setPassword("");
+    };
+  }, []);
+
+  
   const register = (e) => {
     e.preventDefault();
     if (!firstName || !lastName || !email || !password) {

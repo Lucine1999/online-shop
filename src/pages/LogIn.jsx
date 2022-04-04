@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
@@ -12,6 +12,7 @@ import { auth, signInWithEmailAndPassword } from "../firebase";
 import { useDispatch, useSelector } from "react-redux";
 import { login, selectUser } from "../features/users/usersSlice";
 import { Navigate } from "react-router-dom";
+import { getWishlistItems } from "../features/products/productsSlice";
 
 const theme = createTheme();
 
@@ -20,6 +21,13 @@ function LogIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    return () => {
+      setEmail("");
+      setPassword("");
+    };
+  }, []);
 
   const loginToApp = (e) => {
     e.preventDefault();
@@ -30,7 +38,7 @@ function LogIn() {
           login({
             email: userAuth.user.email,
             uid: userAuth.user.uid,
-            displayName: userAuth.user.displayName
+            displayName: userAuth.user.displayName,
           })
         );
       })
@@ -43,8 +51,8 @@ function LogIn() {
       });
   };
 
-  if (user) return <Navigate to='/' /> 
-  
+  if (user) return <Navigate to="/" />;
+
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
@@ -60,11 +68,7 @@ function LogIn() {
           <Typography component="h1" variant="h5">
             Log In
           </Typography>
-          <Box
-            component="form"
-            noValidate
-            sx={{ mt: 1 }}
-          >
+          <Box component="form" noValidate sx={{ mt: 1 }}>
             <TextField
               margin="normal"
               required
@@ -91,7 +95,7 @@ function LogIn() {
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ height: "45px", mt: 3, mb: 2}}
+              sx={{ height: "45px", mt: 3, mb: 2 }}
               onClick={loginToApp}
             >
               Log In

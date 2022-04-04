@@ -46,20 +46,24 @@ export const productsSlice = createSlice({
         },
         getWishlistItems: (state, action) => {
             let userId = action.payload.userId;
+
             if (localStorage.getItem("wishlistProducts") !== null) {
+
                 let wishlistProducts = JSON.parse(
                     localStorage.getItem("wishlistProducts")
                 );
+                
                 if (userId in wishlistProducts) {
                     state.wishlistItems = wishlistProducts[userId];
+                } else {
+                    state.wishlistItems = [];
                 }
             }
         },
     },
 });
 
-export const { getProducts, addToWishlist, getWishlistItems } =
-    productsSlice.actions;
+export const { getProducts, addToWishlist, getWishlistItems } = productsSlice.actions;
 
 export const selectProducts = (state) => state.products.products;
 export const selectWishlist = (state) => state.products.wishlistItems;

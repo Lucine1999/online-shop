@@ -16,7 +16,7 @@ function BoxComponent(props) {
     const dispatch = useDispatch();
 
     return (
-        <Card key={obj.id} sx={{ width: 300, margin: "5px 5px 20px 5px" }}>
+        <Card key={obj.id} sx={{ width: 280, margin: "5px 5px 20px 5px" }}>
             <CardActionArea>
                 <CardMedia
                     height="200"

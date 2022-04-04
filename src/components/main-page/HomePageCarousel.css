@@ -1,0 +1,37 @@
+.carousel-item-img {
+  height: 600px;
+  object-fit: cover;
+  filter: contrast(0.8) brightness(0.8);
+}
+.banner-text-style {
+  position: absolute;
+  z-index: 9;
+  top: 50%;
+  transform: translate(0%, -50%);
+  left: 5%;
+  text-align: left;
+  width: 700px;
+}
+.banner-text-style h1 {
+  color: white;
+  font-size: 55px;
+  line-height: 65px;
+  margin-bottom: 15px;
+}
+@media (max-width: 580px) {
+  .banner-text-style{
+    display: none;
+  }
+}
+.position-relative {
+  position: relative;
+}
+.buy-button {
+  background-color: #1f989e;
+  color: white;
+  font-weight: 700;
+  font-size: 20px;
+  border: none;
+  padding: 15px 20px;
+  border-radius: 4px;
+}

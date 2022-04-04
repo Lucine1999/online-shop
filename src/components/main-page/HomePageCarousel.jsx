@@ -1,27 +1,50 @@
-import React from 'react';
-import { Carousel } from 'react-responsive-carousel';
-import image1 from '../../assets/image1.jpg'
-import image2 from '../../assets/image2.jpg'
-import image3 from '../../assets/image3.jpg'
+import React from "react";
+import { Carousel } from "react-responsive-carousel";
+import image1 from "../../assets/banner1.jpg";
+import image2 from "../../assets/banner2.jpeg";
+import image3 from "../../assets/banner3.jpg";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import "./HomePageCarousel.css";
 
-
-const images = [image1, image2, image3]
+const images = [
+    { img: image1, text: "Խաղալիքների նոր հավաքածու" },
+    { img: image2, text: "Գործվածքների մեծ ընտրանի" },
+    { img: image3, text: "Փոքրիկների ամենափափուկ անկյունը" },
+];
 
 const Homepagecarusel = () => {
     return (
-        <Carousel width="100%" className='main-slide' autoPlay dynamicHeight emulateTouch infiniteLoop showThumbs={false}>
-            {
-                images.map(el => {
+        <div style={{ marginBottom: "80px" }}>
+            <Carousel
+                width="100%"
+                className="main-slide"
+                //   autoPlay
+                dynamicHeight
+                emulateTouch
+                infiniteLoop
+                showThumbs={false}
+            >
+                {images.map((el, index) => {
                     return (
-                    <div key={el}>
-                        <img style={{maxHeight: '400px', paddingTop: '10px'}} src={el} alt={el} />
-                        <legend>asdasd</legend>
-                    </div>
-                )})
-            }
-        </Carousel>
+                        <div key={index} className="position-relative">
+                            <div className="banner-text-style">
+                                <h1>{el.text}</h1>
+                                <button className="buy-button">
+                                    Գնել հիմա
+                                </button>
+                            </div>
+                            <img
+                                className="carousel-item-img"
+                                src={el.img}
+                                alt="main banner images"
+                            />
+                            {/* <legend>asdasd</legend> */}
+                        </div>
+                    );
+                })}
+            </Carousel>
+        </div>
     );
-}
+};
 
 export default Homepagecarusel;

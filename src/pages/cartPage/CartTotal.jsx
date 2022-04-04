@@ -5,7 +5,7 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import { List, ListItem, ListItemText, Divider } from "@mui/material";
 import { Button } from "@mui/material";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 export default function CartTotal() {
     const style = {

@@ -12,7 +12,7 @@ function ListItem() {
     const [previusPage, setPreviusPage] = useState(parseInt(location.search?.split('=')[1] - 1 || 0));
     const [currentPage, setCurrentPage] = useState(parseInt(location.search?.split('=')[1] || 1));
 
-    const productCount = 2;
+    const productCount = 8;
 
     const wishlistItems = useSelector(selectWishlist);
     const user = useSelector(selectUser);

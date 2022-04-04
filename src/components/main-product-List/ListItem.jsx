@@ -1,9 +1,8 @@
 import BoxComponent from "../main-product-List/BoxComponent";
 import PaginationRounded from "../main-product-List/pagination";
 import {useSelector} from "react-redux";
-import { selectProducts } from "../../features/products/productsSlice";
+import { selectProducts, selectWishlist } from "../../features/products/productsSlice";
 import { selectUser } from "../../features/users/usersSlice";
-import { selectWishlist } from "../../features/products/productsSlice";
 
 function ListItem() {
     const products = useSelector(selectProducts);
@@ -14,7 +13,7 @@ function ListItem() {
     return (
         <main className="product-list">
             <div className="items">
-                {products ? products.map((value) => <BoxComponent wishlistItems={wishlistItems} userId={user_id} product ={value} key={value.id} />) : null}
+                {products ? products.map((value) => <BoxComponent wishlistItems={wishlistItems} userId={user_id} product={value} key={value.id} />) : null}
             </div>
             <PaginationRounded />
         </main>

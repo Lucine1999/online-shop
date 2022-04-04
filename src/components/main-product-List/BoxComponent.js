@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useDispatch } from "react-redux";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
@@ -7,17 +8,15 @@ import { CardActionArea } from "@mui/material";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { Link } from "react-router-dom";
-// import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import { addToWishlist } from "../../features/products/productsSlice";
 
-function BoxComponent(obj) {
+function BoxComponent(props) {
+    let obj = props.product;
+    const dispatch = useDispatch();
+
     return (
-        <Card
-            key={obj.id}
-            sx={{ width: 300, margin: "5px 5px 20px 5px" }}
-            component={Link}
-            to={`/products/${obj.id}`}
-            style={{ textDecoration: "none" }}
-        >
+        <Card key={obj.id} sx={{ width: 300, margin: "5px 5px 20px 5px" }}>
             <CardActionArea>
                 <CardMedia
                     height="200"
@@ -27,7 +26,14 @@ function BoxComponent(obj) {
                     style={{ objectFit: "contain", backgroundColor: "#e5e5e5" }}
                 />
                 <CardContent style={{ textAlign: "center" }}>
-                    <Typography variant="h6">{obj.name}</Typography>
+                    <Typography
+                        component={Link}
+                        to={`/products/${obj.id}`}
+                        style={{ textDecoration: "none" }}
+                        variant="h6"
+                    >
+                        {obj.name}
+                    </Typography>
                     <Typography
                         variant="body2"
                         color="text.secondary"
@@ -36,8 +42,29 @@ function BoxComponent(obj) {
                         {obj.price + " " + obj.currency}
                     </Typography>
                     <Typography>
-                        <FavoriteBorderIcon />
-                        {/* <FavoriteIcon /> */}
+                        {props.wishlistItems.includes(`${obj.id}`) ? (
+                            <FavoriteIcon
+                                onClick={() =>
+                                    dispatch(
+                                        addToWishlist({
+                                            productId: `${obj.id}`,
+                                            userId: `${props.userId}`,
+                                        })
+                                    )
+                                }
+                            />
+                        ) : (
+                            <FavoriteBorderIcon
+                                onClick={() =>
+                                    dispatch(
+                                        addToWishlist({
+                                            productId: `${obj.id}`,
+                                            userId: `${props.userId}`,
+                                        })
+                                    )
+                                }
+                            />
+                        )}
                         <ShoppingCartOutlinedIcon />
                     </Typography>
                 </CardContent>

@@ -3,7 +3,7 @@
 function divModel(img) {
     return (
         <div className="offer-div" style={{marginBottom:"80px"}}>
-            <img src={img} className="offer-img"></img>
+            <img src={img} alt="offer-img" className="offer-img"></img>
         </div>
     )
 };

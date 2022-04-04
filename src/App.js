@@ -12,6 +12,7 @@ import { auth, onAuthStateChanged, db, collection, getDocs } from "./firebase";
 //import MainLayout from "./components/layout/MainLayout";
 import LogIn from "./pages/LogIn";
 import SignUp from "./pages/SignUp";
+import CartPage from "./pages/cartPage/CartPage";
 import NotFound from "./pages/NotFound";
 import "./App.css";
 
@@ -59,6 +60,7 @@ function App() {
           <Route path="/login" element={<LogIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/cart" element={<CartPage />} />
         </Routes>
       <Footer />
     </>

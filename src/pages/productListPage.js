@@ -8,7 +8,7 @@ function ProductListPage() {
     <>
       <main className='product-list-page'>
         <div>
-          <FilterByCost />
+          {/* <FilterByCost /> */}
           <Catalog />
         </div>
         <ListItem />

@@ -7,7 +7,6 @@ function ListItem() {
     const products = useSelector(selectProducts);
     return (
         <main className="product-list">
-            
             <div className="items">
                 {products ? products.map((value) => BoxComponent(value)) : null}
             </div>

@@ -82,8 +82,9 @@ li {
 .items {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    max-width: 800px;
+    /* justify-content: space-between; */
+    justify-content: center;
+    width: 100%;
     margin: auto;
 }
 
@@ -98,7 +99,7 @@ li {
     justify-content: space-between;
     margin-top: 20px;
     margin-left: 10px;
-
+    flex-wrap: wrap;
 }
 
 .footer {

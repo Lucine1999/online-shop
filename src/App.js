@@ -9,7 +9,6 @@ import { useDispatch } from "react-redux";
 import { login, logout } from "./features/users/usersSlice";
 import { getProducts } from "./features/products/productsSlice";
 import { auth, onAuthStateChanged, db, collection, getDocs } from "./firebase";
-//import MainLayout from "./components/layout/MainLayout";
 import LogIn from "./pages/LogIn";
 import SignUp from "./pages/SignUp";
 import CartPage from "./pages/cartPage/CartPage";

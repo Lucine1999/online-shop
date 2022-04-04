@@ -56,7 +56,7 @@ function App() {
                 dispatch(logout());
             }
         });
-    }, [dispatch,productsCollectionRef]);
+    }, []);
 
     if (loading) {
         return <div></div>;

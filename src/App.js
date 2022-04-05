@@ -12,6 +12,7 @@ import { auth, onAuthStateChanged, db, collection, getDocs } from "./firebase";
 import LogIn from "./pages/LogIn";
 import SignUp from "./pages/SignUp";
 import CartPage from "./pages/cartPage/CartPage";
+import WishlistPage from "./pages/wishlistPage/WishlistPage";
 import NotFound from "./pages/NotFound";
 import { getWishlistItems } from "./features/products/productsSlice";
 import "./App.css";
@@ -72,6 +73,8 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="*" element={<NotFound />} />
         <Route path="/cart" element={<CartPage />} />
+        <Route path="/favorites" element={<WishlistPage />} />
+
       </Routes>
       <Footer />
     </>

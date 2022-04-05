@@ -13,7 +13,7 @@ import LogIn from "./pages/LogIn";
 import SignUp from "./pages/SignUp";
 import CartPage from "./pages/cartPage/CartPage";
 import NotFound from "./pages/NotFound";
-import { getWishlistItems } from "./features/products/productsSlice";
+import { getWishlistItems, getCartItems } from "./features/products/productsSlice";
 import "./App.css";
 
 function App() {
@@ -49,9 +49,11 @@ function App() {
           })
         );
         dispatch(getWishlistItems({ userId: userAuth.uid }));
+        dispatch(getCartItems({ userId: userAuth.uid }));
       } else {
         setLoading(false);
         dispatch(getWishlistItems({ userId: 0 }));
+        dispatch(getCartItems({ userId: 0 }));
         dispatch(logout());
       }
     });

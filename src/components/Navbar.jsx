@@ -11,22 +11,23 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import Badge from "@mui/material/Badge";
-import {
-    AccountCircle,
-    Favorite,
-    Search,
-    ShoppingCart,
-} from "@mui/icons-material";
+import {AccountCircle, Favorite, Search, ShoppingCart } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import { auth } from "../firebase";
 import { useSelector, useDispatch } from "react-redux";
 import { logout, selectUser } from "../features/users/usersSlice";
+import { selectCart, selectWishlist } from "../features/products/productsSlice";
 
 import "./Navbar.css";
 import logo from "../assets/logo.jpg";
 
 const Navbar = () => {
     const user = useSelector(selectUser);
+    const cartItems = useSelector(selectCart);
+    const wishlistItems = useSelector(selectWishlist);
+
+    
+
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -162,7 +163,7 @@ const Navbar = () => {
                         </IconButton>
 
                         <IconButton size="large" component={Link} to="/cart">
-                            <Badge badgeContent={5} color="error">
+                            <Badge badgeContent={Object.keys(cartItems).length ? Object.keys(cartItems).length : null} color="error">
                                 <ShoppingCart />
                             </Badge>
                         </IconButton>
@@ -172,7 +173,7 @@ const Navbar = () => {
                             component={Link}
                             to="/favorites"
                         >
-                            <Badge badgeContent={10} color="error">
+                            <Badge badgeContent={wishlistItems.length ? wishlistItems.length : null} color="error">
                                 <Favorite />
                             </Badge>
                         </IconButton>

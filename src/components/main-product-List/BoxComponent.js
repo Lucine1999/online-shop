@@ -9,11 +9,14 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { Link } from "react-router-dom";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import { addToWishlist } from "../../features/products/productsSlice";
+import { addToWishlist, addToCart } from "../../features/products/productsSlice";
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
 
 function BoxComponent(props) {
     let obj = props.product;
     const dispatch = useDispatch();
+    
 
     return (
         <Card key={obj.id} sx={{ width: 280, margin: "5px 5px 20px 5px" }}>
@@ -65,7 +68,40 @@ function BoxComponent(props) {
                                 }
                             />
                         )}
-                        <ShoppingCartOutlinedIcon />
+                        {!props.cartItems.hasOwnProperty(`${obj.id}`) ? (
+                            <ShoppingCartOutlinedIcon 
+                            onClick={() =>
+                                dispatch(
+                                    addToCart({
+                                        productId: `${obj.id}`,
+                                        userId: `${props.userId}`,
+                                    })
+                                )
+                            }
+                        />
+                        ) : (
+                            <>
+                                <AddIcon 
+                                    onClick={() =>
+                                        dispatch(addToCart({
+                                            productId: `${obj.id}`,
+                                            userId: `${props.userId}`,
+                                            amount: 1
+                                        })
+                                    )}
+                                />
+                                <span>{props.cartItems[`${obj.id}`]}</span>
+                                <RemoveIcon 
+                                    onClick={() =>
+                                        dispatch(addToCart({
+                                            productId: `${obj.id}`,
+                                            userId: `${props.userId}`,
+                                            amount: -1
+                                        })
+                                    )}
+                                />
+                            </>
+                        )}
                     </Typography>
                 </CardContent>
             </CardActionArea>

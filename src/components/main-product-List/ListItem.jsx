@@ -1,7 +1,7 @@
 import BoxComponent from "../main-product-List/BoxComponent";
 import PaginationRounded from "../main-product-List/pagination";
 import {useSelector} from "react-redux";
-import { selectProducts, selectWishlist } from "../../features/products/productsSlice";
+import { selectProducts, selectWishlist, selectCart } from "../../features/products/productsSlice";
 import { useEffect, useState } from "react";
 import { useLocation } from 'react-router-dom'
 import { selectUser } from "../../features/users/usersSlice";
@@ -14,10 +14,13 @@ function ListItem() {
 
     const productCount = 8;
 
-    const wishlistItems = useSelector(selectWishlist);
     const user = useSelector(selectUser);
     const user_id = user ? user.uid : 0;
-
+    
+    const cartItems = useSelector(selectCart);
+    const wishlistItems = useSelector(selectWishlist);
+    
+    
     useEffect(() => {
         setPreviusPage(currentPage -1)
       }, [currentPage])
@@ -27,7 +30,7 @@ function ListItem() {
             <div className="items">
                 {products ? products.map((value, idx) => {
                     if (idx < currentPage * productCount && idx >= previusPage * productCount) {
-                        return <BoxComponent wishlistItems={wishlistItems} userId={user_id} product ={value} key={value.id} />
+                        return <BoxComponent key={value.id} userId={user_id} cartItems={cartItems} wishlistItems={wishlistItems} product ={value}/>
                     }
                 }) : null}
             </div>

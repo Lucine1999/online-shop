@@ -1,26 +1,19 @@
-import CardHomePage from "./cardHompage";
+import { useSelector } from "react-redux";
+import { selectProducts } from "../../features/products/productsSlice";
+import BoxComponent from "../main-product-List/BoxComponent";
 
 function FavoriteCards() {
-  const obj = [
-    {
-      img: `https://mobilelords.ru/wp-content/uploads/igrushki-amigurumi-20.jpg`,
-      header: "Պրոդուկտի անուն 1",
-    },
-    {
-      img: `https://mobilelords.ru/wp-content/uploads/igrushki-amigurumi-20.jpg`,
-      header: "Պրոդուկտի անուն 2",
-    },
-    {
-      img: `https://mobilelords.ru/wp-content/uploads/igrushki-amigurumi-20.jpg`,
-      header: "Պրոդուտկի անուն 3",
-    },
-  ];
+  const products = useSelector(selectProducts);
 
   return (
     <div style={{ marginBottom: "80px" }}>
       <h2 style={{ marginBottom: "40px",marginLeft:"20px" }}>Նախընտրած պրոդուկտներ</h2>
       <div className="cards-container">
-        {obj.map((value, i) => CardHomePage(value, i))}
+        {products ? products.map(value => {
+          if (value.bestSeller) {
+            return <BoxComponent key={value.id} product ={value}/>
+          }
+        }) : null}
       </div>
     </div>
   );

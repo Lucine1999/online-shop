@@ -17,95 +17,94 @@ function BoxComponent(props) {
     let obj = props.product;
     const dispatch = useDispatch();
     
-
     return (
-        <Card key={obj.id} sx={{ width: 280, margin: "5px 5px 20px 5px" }}>
-            <CardActionArea>
-                <CardMedia
-                    height="200"
-                    component="img"
-                    image={obj.img}
-                    alt="image does not exist"
-                    style={{ objectFit: "contain", backgroundColor: "#e5e5e5" }}
-                />
-                <CardContent style={{ textAlign: "center" }}>
-                    <Typography
-                        component={Link}
-                        to={`/products/${obj.id}`}
-                        style={{ textDecoration: "none" }}
-                        variant="h6"
-                    >
-                        {obj.name}
-                    </Typography>
-                    <Typography
-                        variant="body2"
-                        color="text.secondary"
-                        style={{ marginBottom: "20px" }}
-                    >
-                        {obj.price + " " + obj.currency}
-                    </Typography>
-                    <Typography>
-                        {props.wishlistItems.includes(`${obj.id}`) ? (
-                            <FavoriteIcon
-                                onClick={() =>
-                                    dispatch(
-                                        addToWishlist({
-                                            productId: `${obj.id}`,
-                                            userId: `${props.userId}`,
-                                        })
-                                    )
-                                }
-                            />
-                        ) : (
-                            <FavoriteBorderIcon
-                                onClick={() =>
-                                    dispatch(
-                                        addToWishlist({
-                                            productId: `${obj.id}`,
-                                            userId: `${props.userId}`,
-                                        })
-                                    )
-                                }
-                            />
-                        )}
-                        {!props.cartItems.hasOwnProperty(`${obj.id}`) ? (
-                            <ShoppingCartOutlinedIcon 
+        obj.img && <Card key={obj.id} sx={{ width: 280, margin: "5px 5px 20px 5px" }}>
+        <CardActionArea>
+            <CardMedia
+                height="200"
+                component="img"
+                image={obj.img}
+                alt="image does not exist"
+                style={{ objectFit: "contain", backgroundColor: "#e5e5e5" }}
+            />
+            <CardContent style={{ textAlign: "center" }}>
+                <Typography
+                    component={Link}
+                    to={`/products/${obj.id}`}
+                    style={{ textDecoration: "none" }}
+                    variant="h6"
+                >
+                    {obj.name}
+                </Typography>
+                <Typography
+                    variant="body2"
+                    color="text.secondary"
+                    style={{ marginBottom: "20px" }}
+                >
+                    {obj.price + " " + obj.currency}
+                </Typography>
+                <Typography>
+                    {props.wishlistItems ? props.wishlistItems.includes(`${obj.id}`) ? (
+                        <FavoriteIcon
                             onClick={() =>
                                 dispatch(
-                                    addToCart({
+                                    addToWishlist({
                                         productId: `${obj.id}`,
                                         userId: `${props.userId}`,
                                     })
                                 )
                             }
                         />
-                        ) : (
-                            <>
-                                <AddIcon 
-                                    onClick={() =>
-                                        dispatch(addToCart({
-                                            productId: `${obj.id}`,
-                                            userId: `${props.userId}`,
-                                            amount: 1
-                                        })
-                                    )}
-                                />
-                                <span>{props.cartItems[`${obj.id}`]}</span>
-                                <RemoveIcon 
-                                    onClick={() =>
-                                        dispatch(addToCart({
-                                            productId: `${obj.id}`,
-                                            userId: `${props.userId}`,
-                                            amount: -1
-                                        })
-                                    )}
-                                />
-                            </>
-                        )}
-                    </Typography>
-                </CardContent>
-            </CardActionArea>
-        </Card>
+                    ) : (
+                        <FavoriteBorderIcon
+                            onClick={() =>
+                                dispatch(
+                                    addToWishlist({
+                                        productId: `${obj.id}`,
+                                        userId: `${props.userId}`,
+                                    })
+                                )
+                            }
+                        />
+                    ) : null}
+                    {props.cartItems ? !props.cartItems.hasOwnProperty(`${obj.id}`) ? (
+                        <ShoppingCartOutlinedIcon 
+                        onClick={() =>
+                            dispatch(
+                                addToCart({
+                                    productId: `${obj.id}`,
+                                    userId: `${props.userId}`,
+                                })
+                            )
+                        }
+                    />
+                    ) : (
+                        <>
+                            <AddIcon 
+                                onClick={() =>
+                                    dispatch(addToCart({
+                                        productId: `${obj.id}`,
+                                        userId: `${props.userId}`,
+                                        amount: 1
+                                    })
+                                )}
+                            />
+                            <span>{props.cartItems && props.cartItems[`${obj.id}`]}</span>
+                            <RemoveIcon 
+                                onClick={() =>
+                                    dispatch(addToCart({
+                                        productId: `${obj.id}`,
+                                        userId: `${props.userId}`,
+                                        amount: -1
+                                    })
+                                )}
+                            />
+                        </>
+                    ) : null}
+                </Typography>
+            </CardContent>
+        </CardActionArea>
+    </Card>
     );
 }
 

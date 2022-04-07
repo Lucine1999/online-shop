@@ -32,7 +32,8 @@ export const productsSlice = createSlice({
         if (userId in cartProducts) {
           if (cartProducts[userId].hasOwnProperty(productId)) {
             if (cartProducts[userId][productId] + amount <= 0) {
-              cartProducts[userId][productId] = 0;
+              delete cartProducts[userId][productId];
+              // cartProducts[userId][productId] = 0;
             } else {
               cartProducts[userId][productId] += amount;
             }

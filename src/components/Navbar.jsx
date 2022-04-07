@@ -26,7 +26,7 @@ const Navbar = () => {
     const cartItems = useSelector(selectCart);
     const wishlistItems = useSelector(selectWishlist);
 
-    
+    const cartaBadge = Object.values(cartItems).filter(el => el !== 0 ? el : null)
 
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -55,6 +55,7 @@ const Navbar = () => {
         dispatch(logout());
         auth.signOut();
     };
+
 
     return (
         <AppBar
@@ -163,7 +164,7 @@ const Navbar = () => {
                         </IconButton>
 
                         <IconButton size="large" component={Link} to="/cart">
-                            <Badge badgeContent={Object.keys(cartItems).length ? Object.keys(cartItems).length : null} color="error">
+                            <Badge badgeContent={Object.keys(cartItems).length ? cartaBadge.length : null} color="error">
                                 <ShoppingCart />
                             </Badge>
                         </IconButton>

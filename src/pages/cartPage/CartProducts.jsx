@@ -159,12 +159,7 @@ export default function CartProducts() {
               </TableCell>
             </TableRow>
             :
-            dispatch(
-              removeFromCart({
-                productId: `${row.id}`,
-                userId: `${user_id}`,
-              })
-            )
+            null
           ))}
         </TableBody>
       </Table>

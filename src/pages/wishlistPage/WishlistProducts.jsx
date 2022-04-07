@@ -69,7 +69,7 @@ export default function WishlistProducts() {
                 <TableBody>
                     {filteredProducts.map((row) => (
                         <TableRow
-                            key={row.name}
+                            key={row.id}
                             sx={{
                                 "&:last-child td, &:last-child th": {
                                     border: 0,

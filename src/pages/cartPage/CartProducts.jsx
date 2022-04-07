@@ -69,6 +69,7 @@ export default function CartProducts() {
         </TableHead>
         <TableBody>
           {filteredProducts.map((row) => (
+            cartItems[row.id] ?
             <TableRow
               key={row.id}
               sx={{
@@ -157,9 +158,17 @@ export default function CartProducts() {
                 />
               </TableCell>
             </TableRow>
+            :
+            dispatch(
+              removeFromCart({
+                productId: `${row.id}`,
+                userId: `${user_id}`,
+              })
+            )
           ))}
         </TableBody>
       </Table>
     </TableContainer>
+    
   );
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from '@mui/material';
 import { useDispatch } from "react-redux";
-import { addToCart, removeFromCart } from '../../features/products/productsSlice';
+import { addToCart } from '../../features/products/productsSlice';
 
 
 const SingleProductDescription = ({ productName, productPrice, productsID, userID, cartItems }) => {

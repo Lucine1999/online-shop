@@ -45,7 +45,6 @@ export default function CartProducts() {
         height: "80px",
         objectFit: "contain",
     };
-
     return (
         <TableContainer component={Paper} style={{ marginBottom: "20px" }}>
             <Table sx={{ minWidth: 650 }} aria-label="simple table">

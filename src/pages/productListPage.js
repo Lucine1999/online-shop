@@ -7,7 +7,7 @@ function ProductListPage() {
   return (
     <>
       <main className='product-list-page'>
-        <div>
+        <div style={{width:"220px"}}>
           {/* <FilterByCost /> */}
           <Catalog />
         </div>

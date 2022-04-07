@@ -11,7 +11,6 @@ export default function WishlistPage() {
             <WishlistHeader />
             <Container style={{ marginTop: "80px", marginBottom: "20px" }}>
                 <WishlistProducts />
-                
             </Container>
         </>
     );

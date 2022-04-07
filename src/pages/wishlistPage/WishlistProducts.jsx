@@ -21,7 +21,7 @@ import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import IconButton from "@mui/material/IconButton";
 import InputBase from "@mui/material/InputBase";
-
+    
 export default function WishlistProducts() {
     const user = useSelector(selectUser);
     const user_id = user ? user.uid : 0;

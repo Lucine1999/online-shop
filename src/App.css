@@ -87,7 +87,7 @@ li {
     margin: auto;
     width: calc(100vw - 300px);
 }
-@media(max-width:880px){
+@media(max-width:767px){
     .items {
         width: 100%;
     }

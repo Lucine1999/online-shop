@@ -29,7 +29,7 @@ const Navbar = () => {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
 
-    const pages = ["Products"];
+    const pages = [{page:"products",name:"Պրոդուկտներ"}];
     const settings = user ? ["Profile", "Log Out"] : ["Log In", "Sign Up"];
 
     const dispatch = useDispatch();
@@ -114,13 +114,13 @@ const Navbar = () => {
                         >
                             {pages.map((page) => (
                                 <MenuItem
-                                    key={page}
+                                    key={page.page}
                                     onClick={handleCloseNavMenu}
                                     component={Link}
-                                    to={`/${page.toLowerCase()}`}
+                                    to={`/${page.page}`}
                                 >
-                                    <Typography textAlign="center">
-                                        {page}
+                                    <Typography textAlign="center" style={{textTransform:"capitalize"}}>
+                                        {page.name}
                                     </Typography>
                                 </MenuItem>
                             ))}
@@ -146,13 +146,14 @@ const Navbar = () => {
                     >
                         {pages.map((page) => (
                             <Button
-                                key={page}
+                                key={page.page}
                                 onClick={handleCloseNavMenu}
                                 sx={{ my: 2, color: "black", display: "block" }}
                                 component={Link}
-                                to={`/${page.toLowerCase()}`}
+                                to={`/${page.page}`}
+                                style={{textTransform:"capitalize"}}
                             >
-                                {page}
+                                {page.name}
                             </Button>
                         ))}
                     </Box>

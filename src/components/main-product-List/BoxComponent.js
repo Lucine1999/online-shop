@@ -4,48 +4,69 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { CardActionArea } from "@mui/material";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { Link } from "react-router-dom";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import { addToWishlist, addToCart } from "../../features/products/productsSlice";
-import AddIcon from '@mui/icons-material/Add';
-import RemoveIcon from '@mui/icons-material/Remove';
+import {
+    addToWishlist,
+    addToCart,
+} from "../../features/products/productsSlice";
+import AddIcon from "@mui/icons-material/Add";
+import RemoveIcon from "@mui/icons-material/Remove";
+import IconButton from '@mui/material/IconButton';
+import CardActions from "@mui/material/CardActions";
+import Button from "@mui/material/Button";
+import Paper from "@mui/material/Paper";
+import InputBase from "@mui/material/InputBase";
+import "./BoxComponent.css"
+
 
 function BoxComponent(props) {
     let obj = props.product;
     const dispatch = useDispatch();
-    
+
     return (
-        obj.img && <Card key={obj.id} sx={{ width: 280, margin: "5px 5px 20px 5px" }}>
-        <CardActionArea>
-            <CardMedia
-                height="200"
-                component="img"
-                image={obj.img}
-                alt="image does not exist"
-                style={{ objectFit: "contain", backgroundColor: "#e5e5e5" }}
-            />
-            <CardContent style={{ textAlign: "center" }}>
-                <Typography
-                    component={Link}
-                    to={`/products/${obj.id}`}
-                    style={{ textDecoration: "none" }}
-                    variant="h6"
+        obj.img && (
+            <Card
+                className="products-each-card-style"
+                key={obj.id}
+                sx={{
+                    margin: "5px 5px 20px 5px",
+                    position: "relative",
+                }}
+            >
+                <CardMedia
+                    height="200"
+                    component="img"
+                    image={obj.img}
+                    alt="image does not exist"
+                    style={{
+                        objectFit: "contain",
+                        backgroundColor: "#e5e5e5",
+                    }}
+                />
+                <CardContent
+                    style={{ textAlign: "center", paddingBottom: "0px" }}
                 >
-                    {obj.name}
-                </Typography>
-                <Typography
-                    variant="body2"
-                    color="text.secondary"
-                    style={{ marginBottom: "20px" }}
-                >
-                    {obj.price + " " + obj.currency}
-                </Typography>
-                <Typography>
-                    {props.wishlistItems ? props.wishlistItems.includes(`${obj.id}`) ? (
-                        <FavoriteIcon
+                    <Typography
+                        component={Link}
+                        to={`/products/${obj.id}`}
+                        style={{ textDecoration: "none",color: "dimgrey" }}
+                        variant="h6"
+                    >
+                        {obj.name}
+                    </Typography>
+                    <Typography
+                        variant="body2"
+                        color="text.secondary"
+                        style={{ marginBottom: "10px" }}
+                    >
+                        {obj.price + " " + obj.currency}
+                    </Typography>
+                    <Typography>
+                        <IconButton
+                            component="span"
                             onClick={() =>
                                 dispatch(
                                     addToWishlist({
@@ -54,57 +75,109 @@ function BoxComponent(props) {
                                     })
                                 )
                             }
-                        />
-                    ) : (
-                        <FavoriteBorderIcon
-                            onClick={() =>
-                                dispatch(
-                                    addToWishlist({
-                                        productId: `${obj.id}`,
-                                        userId: `${props.userId}`,
-                                    })
+                            style={{
+                                position: "absolute",
+                                top: "5px",
+                                right: "5px",
+                                padding: "0",
+                            }}
+                        >
+                            {props.wishlistItems ? (
+                                props.wishlistItems.includes(`${obj.id}`) ? (
+                                    <FavoriteIcon />
+                                ) : (
+                                    <FavoriteBorderIcon />
                                 )
-                            }
-                        />
-                    ) : null}
-                    {props.cartItems ? !props.cartItems.hasOwnProperty(`${obj.id}`) ? (
-                        <ShoppingCartOutlinedIcon 
-                        onClick={() =>
-                            dispatch(
-                                addToCart({
-                                    productId: `${obj.id}`,
-                                    userId: `${props.userId}`,
-                                })
-                            )
-                        }
-                    />
-                    ) : (
-                        <>
-                            <AddIcon 
+                            ) : null}
+                        </IconButton>
+                    </Typography>
+                </CardContent>
+                <CardActions style={{padding:"20px"}}>
+                    {props.cartItems ? (
+                        !props.cartItems.hasOwnProperty(`${obj.id}`) ? (
+                            <Button
+                                className="add-to-cart-shop-page"
                                 onClick={() =>
-                                    dispatch(addToCart({
-                                        productId: `${obj.id}`,
-                                        userId: `${props.userId}`,
-                                        amount: 1
-                                    })
-                                )}
-                            />
-                            <span>{props.cartItems && props.cartItems[`${obj.id}`]}</span>
-                            <RemoveIcon 
-                                onClick={() =>
-                                    dispatch(addToCart({
-                                        productId: `${obj.id}`,
-                                        userId: `${props.userId}`,
-                                        amount: -1
-                                    })
-                                )}
-                            />
-                        </>
+                                    dispatch(
+                                        addToCart({
+                                            productId: `${obj.id}`,
+                                            userId: `${props.userId}`,
+                                        })
+                                    )
+                                }
+                            >
+                                Add to cart
+                                <ShoppingCartOutlinedIcon
+                                    style={{ marginLeft: "5px", width: "18px" }}
+                                />
+                            </Button>
+                        ) : (
+                            <>
+                                <Paper
+                                    style={{
+                                        width: "100%",
+                                        height: "45px",
+                                        border: "2px solid #bcb4b0",
+                                        borderRadius: "50px",
+                                        boxShadow:"none"
+                                    }}
+                                    component="form"
+                                    sx={{
+                                        p: "2px 4px",
+                                        display: "flex",
+                                        alignItems: "center",
+                                        width: 140,
+                                    }}
+                                >
+                                    <IconButton
+                                        sx={{ p: "5px" }}
+                                        onClick={() =>
+                                            dispatch(
+                                                addToCart({
+                                                    productId: `${obj.id}`,
+                                                    userId: `${props.userId}`,
+                                                    amount: -1,
+                                                })
+                                            )
+                                        }
+                                    >
+                                        <RemoveIcon style={{ width: "20px" }} />
+                                    </IconButton>
+                                    <InputBase
+                                        className="shop-page-quantity-input"
+                                        value={
+                                            props.cartItems &&
+                                            props.cartItems[`${obj.id}`]
+                                        }
+                                        sx={{
+                                            flex: 1,
+                                            pr: "10px",
+                                            pl: "10px",
+                                            pb: "5px",
+                                            pt: "5px",
+                                        }}
+                                    />
+                                    <IconButton
+                                        sx={{ p: "5px" }}
+                                        onClick={() =>
+                                            dispatch(
+                                                addToCart({
+                                                    productId: `${obj.id}`,
+                                                    userId: `${props.userId}`,
+                                                    amount: 1,
+                                                })
+                                            )
+                                        }
+                                    >
+                                        <AddIcon style={{ width: "20px" }} />
+                                    </IconButton>
+                                </Paper>
+                            </>
+                        )
                     ) : null}
-                </Typography>
-            </CardContent>
-        </CardActionArea>
-    </Card>
+                </CardActions>
+            </Card>
+        )
     );
 }
 

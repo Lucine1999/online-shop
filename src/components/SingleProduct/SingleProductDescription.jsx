@@ -1,7 +1,12 @@
 import React from 'react';
 import { Button } from '@mui/material';
+import { useDispatch } from "react-redux";
+import { addToCart, removeFromCart } from '../../features/products/productsSlice';
 
-const SingleProductDescription = ({ productName, productPrice }) => {
+
+const SingleProductDescription = ({ productName, productPrice, productsID, userID, cartItems }) => {
+    const dispatch = useDispatch();
+
     return (
         <div className='singleProductDescription'>
             <form action="">
@@ -18,7 +23,45 @@ const SingleProductDescription = ({ productName, productPrice }) => {
                     <span className="price__text">{productPrice}<span className='amd_container'>դր.</span></span>
                     <div className="product__price-note"></div>
                 </div>
-                <Button style={{marginBottom: "20px", paddingLeft: "50px", paddingRight: "50px"}} size='large' variant='contained'>ADD</Button>
+                <Button
+                        style={{marginBottom: "20px", marginRight: "20px", paddingLeft: "25px", paddingRight: "25px"}} 
+                        size='large' 
+                        variant='contained'                 
+                        onClick={() =>
+                            dispatch(
+                                addToCart({
+                                    productId: productsID,
+                                    userId: userID,
+                                    amount: 1
+                            })
+                            )
+                        }
+                    >
+                    +
+                </Button>
+                        {cartItems[productsID] ? 
+                            <>
+                                <span style={{fontSize: 35}}>
+                                    {cartItems && cartItems[productsID]}
+                                </span>
+                                <Button 
+                                    style={{marginBottom: "20px", marginLeft: "20px", paddingLeft: "25px", paddingRight: "25px"}} 
+                                    size='large' 
+                                    variant='contained'                 
+                                    onClick={() =>
+                                        dispatch(addToCart({
+                                            productId: productsID,
+                                            userId: userID,
+                                            amount: -1
+                                        })
+                                    )}
+                                >
+                                    -
+                                </Button>
+                            </> 
+                        :null} 
+
+
                 <div className="info__tab">
                     <div className='info__tab-container'>
                         <span className="info__tab-label">Մանրամասներ</span>

@@ -3,12 +3,19 @@ import SingleProductPhoto from "../components/SingleProduct/SingleProductPhoto";
 import SingleProductDescription from "../components/SingleProduct/SingleProductDescription";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { selectProducts } from "../features/products/productsSlice";
+import { selectCart, selectProducts } from "../features/products/productsSlice";
+import { selectUser } from "../features/users/usersSlice";
 import "./SingleProduct.css";
 
 const SingleProduct = () => {
   let { product } = useParams();
   const products = useSelector(selectProducts);
+  const cartItems = useSelector(selectCart);
+
+  const user = useSelector(selectUser);
+  const user_id = user ? user.uid : 0;
+
+
 
   const currentProduct = products.filter((item) => {
     return item.id === product;
@@ -23,7 +30,7 @@ const SingleProduct = () => {
               <SingleProductPhoto
                 imgUrl={currentProduct[0].img}
               />
-              <SingleProductDescription productName={currentProduct[0].name} productPrice={currentProduct[0].price}/>
+              <SingleProductDescription cartItems={cartItems} productName={currentProduct[0].name} productPrice={currentProduct[0].price} productsID={currentProduct[0].id} userID={user_id}/>
             </>
           ) : <div>Loading..</div>}
         </div>

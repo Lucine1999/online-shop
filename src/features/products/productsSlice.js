@@ -5,6 +5,7 @@ export const productsSlice = createSlice({
     initialState: {
         products: [],
         wishlistItems: [],
+        checkedCategories: [],
     },
     reducers: {
         getProducts: (state, action) => {
@@ -40,7 +41,7 @@ export const productsSlice = createSlice({
                 }
             }
 
-            state.wishlistItems = wishlistProducts[userId];            
+            state.wishlistItems = wishlistProducts[userId];
             wishlistProducts_str = JSON.stringify(wishlistProducts);
             localStorage.setItem("wishlistProducts", wishlistProducts_str);
         },
@@ -52,7 +53,7 @@ export const productsSlice = createSlice({
                 let wishlistProducts = JSON.parse(
                     localStorage.getItem("wishlistProducts")
                 );
-                
+
                 if (userId in wishlistProducts) {
                     state.wishlistItems = wishlistProducts[userId];
                 } else {
@@ -60,12 +61,27 @@ export const productsSlice = createSlice({
                 }
             }
         },
+        addTocategories: (state, action) => {
+            let value = action.payload.categoriId;
+
+            const currentIndex = state.checkedCategories.indexOf(value);
+
+
+            if (currentIndex === -1) {
+                state.checkedCategories.push(value)
+
+
+            } else {
+                state.checkedCategories.splice(currentIndex, 1)
+            }
+        }
     },
 });
 
-export const { getProducts, addToWishlist, getWishlistItems } = productsSlice.actions;
+export const { getProducts, addToWishlist, getWishlistItems, addTocategories } = productsSlice.actions;
 
 export const selectProducts = (state) => state.products.products;
 export const selectWishlist = (state) => state.products.wishlistItems;
+export const selectCategories = (state) => state.products.checkedCategories;
 
 export default productsSlice.reducer;

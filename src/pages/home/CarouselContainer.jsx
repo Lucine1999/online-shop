@@ -1,10 +1,11 @@
 import React from "react";
 import { Carousel } from "react-responsive-carousel";
+import { Link } from "react-router-dom";
 import image1 from "../../assets/banner1.jpg";
 import image2 from "../../assets/banner2.jpeg";
 import image3 from "../../assets/banner3.jpg";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import "./HomePageCarousel.css";
+import "./Home.css";
 
 const images = [
     { img: image1, text: "Խաղալիքների նոր հավաքածու" },
@@ -12,7 +13,7 @@ const images = [
     { img: image3, text: "Փոքրիկների ամենափափուկ անկյունը" },
 ];
 
-const Homepagecarusel = () => {
+const CarouselContainer = () => {
     return (
         <div style={{ marginBottom: "80px" }}>
             <Carousel
@@ -29,8 +30,9 @@ const Homepagecarusel = () => {
                         <div key={index} className="position-relative">
                             <div className="banner-text-style">
                                 <h1>{el.text}</h1>
-                                <button className="buy-button">
-                                    Գնել հիմա
+                                <button
+                                className="buy-button">
+                                    <Link to="/products"> Գնել հիմա </Link>
                                 </button>
                             </div>
                             <img
@@ -38,7 +40,6 @@ const Homepagecarusel = () => {
                                 src={el.img}
                                 alt="main banner images"
                             />
-                            {/* <legend>asdasd</legend> */}
                         </div>
                     );
                 })}
@@ -47,4 +48,4 @@ const Homepagecarusel = () => {
     );
 };
 
-export default Homepagecarusel;
+export default CarouselContainer;

@@ -8,8 +8,7 @@ import YouTubeIcon from '@mui/icons-material/YouTube';
 function Footer() {
 
     const socialIconsStyle={
-        marginRight:"10px",
-        marginLeft:"10px"
+        marginRight:"15px",
     }
 
     return (

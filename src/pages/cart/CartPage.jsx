@@ -12,7 +12,7 @@ export default function CartPage() {
             <CartHeader />
             <Container style={{ marginTop: "80px", marginBottom: "20px" }}>
                 <CartProducts />
-                <CartTotal />
+                
             </Container>
         </>
     );

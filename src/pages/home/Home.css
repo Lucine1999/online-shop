@@ -28,10 +28,13 @@
 }
 .buy-button {
   background-color: #1f989e;
-  color: white;
   font-weight: 700;
   font-size: 20px;
   border: none;
   padding: 15px 20px;
   border-radius: 4px;
+}
+.buy-button a{
+  color: white;
+  text-decoration: none;
 }

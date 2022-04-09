@@ -8,11 +8,11 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { auth, signInWithEmailAndPassword } from "../firebase";
+import { auth, signInWithEmailAndPassword } from "../../firebase";
 import { useDispatch, useSelector } from "react-redux";
-import { login, selectUser } from "../features/users/usersSlice";
+import { login, selectUser } from "../../features/users/usersSlice";
 import { Navigate } from "react-router-dom";
-import { getWishlistItems } from "../features/products/productsSlice";
+import { getWishlistItems } from "../../features/products/productsSlice";
 
 const theme = createTheme();
 

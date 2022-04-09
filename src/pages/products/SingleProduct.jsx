@@ -1,10 +1,10 @@
 import React from "react";
-import SingleProductPhoto from "../components/SingleProduct/SingleProductPhoto";
-import SingleProductDescription from "../components/SingleProduct/SingleProductDescription";
+import SingleProductPhoto from "./SingleProductPhoto";
+import SingleProductDescription from "./SingleProductDescription";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { selectCart, selectProducts } from "../features/products/productsSlice";
-import { selectUser } from "../features/users/usersSlice";
+import { selectCart, selectProducts } from "../../features/products/productsSlice";
+import { selectUser } from "../../features/users/usersSlice";
 import "./SingleProduct.css";
 
 const SingleProduct = () => {

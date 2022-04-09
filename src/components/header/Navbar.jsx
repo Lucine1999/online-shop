@@ -13,13 +13,11 @@ import MenuItem from "@mui/material/MenuItem";
 import Badge from "@mui/material/Badge";
 import {AccountCircle, Favorite, Search, ShoppingCart } from "@mui/icons-material";
 import { Link } from "react-router-dom";
-import { auth } from "../firebase";
+import { auth } from "../../firebase";
 import { useSelector, useDispatch } from "react-redux";
-import { logout, selectUser } from "../features/users/usersSlice";
-import { selectCart, selectWishlist } from "../features/products/productsSlice";
-
-import "./Navbar.css";
-import logo from "../assets/logo.jpg";
+import { logout, selectUser } from "../../features/users/usersSlice";
+import { selectCart, selectWishlist } from "../../features/products/productsSlice";
+import logo from "../../assets/logo.jpg";
 
 const Navbar = () => {
     const user = useSelector(selectUser);
@@ -29,7 +27,7 @@ const Navbar = () => {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
 
-    const pages = [{page:"products",name:"Պրոդուկտներ"}];
+    const pages = [{page:"products",name:"Ապրանքներ"}];
     const settings = user ? ["Profile", "Log Out"] : ["Log In", "Sign Up"];
 
     const dispatch = useDispatch();
@@ -75,7 +73,7 @@ const Navbar = () => {
                             display: { xs: "none", md: "flex" },
                         }}
                     >
-                        <img src={logo} alt="logo" className="logo-style" />
+                        <img src={logo} alt="logo" style={{width: "50px"}} />
                     </Typography>
 
                     <Box
@@ -129,14 +127,15 @@ const Navbar = () => {
                     <Typography
                         variant="h6"
                         noWrap
-                        component="div"
+                        component={Link}
+                        to="/"
                         sx={{
                             flexGrow: 1,
                             display: { xs: "flex", md: "none" },
                         }}
                     >
                         {/* LOGO */}
-                        <img src={logo} alt="logo" className="logo-style" />
+                        <img src={logo} alt="logo" className="logo-style" style={{width: "50px"}} />
                     </Typography>
                     <Box
                         sx={{

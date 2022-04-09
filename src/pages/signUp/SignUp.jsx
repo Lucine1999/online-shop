@@ -12,9 +12,9 @@ import {
   auth,
   createUserWithEmailAndPassword,
   updateProfile,
-} from "../firebase";
+} from "../../firebase";
 import { useDispatch, useSelector } from "react-redux";
-import { login, selectUser } from "../features/users/usersSlice";
+import { login, selectUser } from "../../features/users/usersSlice";
 import { Navigate } from "react-router-dom";
 
 const theme = createTheme();

@@ -1,20 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
-import HomePageContentAndFooter from "./pages/HomePageContentAndFooter";
-import ProductListPage from "./pages/productListPage";
-import Navbar from "./components/Navbar";
-import SingleProduct from "./pages/SingleProduct";
+
+import Navbar from "./components/header/Navbar";
 import Footer from "./components/footer/Footer";
+import HomePageContentAndFooter from "./pages/home/HomeLayout";
+import ProductListPage from "./pages/products/ProductListPage";
+import SingleProduct from "./pages/products/SingleProduct";
+import LogIn from "./pages/logIn/LogIn";
+import SignUp from "./pages/signUp/SignUp";
+import CartPage from "./pages/cart/CartPage";
+import WishlistPage from "./pages/wishlist/WishlistPage";
+import NotFound from "./pages/notFound/NotFound";
+
 import { useDispatch } from "react-redux";
 import { login, logout } from "./features/users/usersSlice";
 import { getProducts } from "./features/products/productsSlice";
 import { auth, onAuthStateChanged, db, collection, getDocs } from "./firebase";
-import LogIn from "./pages/LogIn";
-import SignUp from "./pages/SignUp";
-import CartPage from "./pages/cartPage/CartPage";
-import WishlistPage from "./pages/wishlistPage/WishlistPage";
-import NotFound from "./pages/NotFound";
 import { getWishlistItems, getCartItems } from "./features/products/productsSlice";
+
 import "./App.css";
 
 function App() {
@@ -76,7 +79,6 @@ function App() {
         <Route path="*" element={<NotFound />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/favorites" element={<WishlistPage />} />
-
       </Routes>
       <Footer />
     </>

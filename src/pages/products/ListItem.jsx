@@ -1,5 +1,5 @@
-import BoxComponent from "../main-product-List/BoxComponent";
-import PaginationRounded from "../main-product-List/pagination";
+import BoxComponent from "./BoxComponent";
+import PaginationRounded from "./Pagination";
 import {useSelector} from "react-redux";
 import { selectProducts, selectWishlist, selectCart } from "../../features/products/productsSlice";
 import { useEffect, useState } from "react";

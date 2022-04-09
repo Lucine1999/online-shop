@@ -118,7 +118,7 @@ function BoxComponent(props) {
                                         width: "100%",
                                         height: "45px",
                                         border: "2px solid #bcb4b0",
-                                        borderRadius: "50px",
+                                        borderRadius: "5px",
                                         boxShadow:"none"
                                     }}
                                     component="form"

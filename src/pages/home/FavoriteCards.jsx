@@ -4,7 +4,6 @@ import BoxComponent from "../products/BoxComponent";
 
 function FavoriteCards() {
   const products = useSelector(selectProducts);
-  console.log(products);
   return (
     <div style={{ marginBottom: "80px" }}>
       <h2 style={{ marginBottom: "40px",marginLeft:"20px" }}>Նախընտրած Ապրանքներ</h2>

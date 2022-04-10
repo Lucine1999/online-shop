@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 
 import Navbar from "./components/header/Navbar";
 import Footer from "./components/footer/Footer";
@@ -21,6 +22,12 @@ import { getWishlistItems, getCartItems } from "./features/products/productsSlic
 import "./App.css";
 
 function App() {
+  const { t, i18n } = useTranslation();
+
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+  };
+
   const dispatch = useDispatch();
 
   const productsCollectionRef = collection(db, "products");
@@ -65,20 +72,20 @@ function App() {
 
   if (loading) {
     return <div></div>;
-  }
+  }  
 
   return (
     <>
-      <Navbar />
+      <Navbar changeLanguage={changeLanguage} t={t}/>  
       <Routes>
-        <Route path="/" element={<HomePageContentAndFooter />} />
-        <Route path="/products" element={<ProductListPage />} />
-        <Route path="/products/:product" element={<SingleProduct />} />
-        <Route path="/login" element={<LogIn />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="*" element={<NotFound />} />
-        <Route path="/cart" element={<CartPage />} />
-        <Route path="/favorites" element={<WishlistPage />} />
+        <Route path="/" element={<HomePageContentAndFooter t={t}/>} />
+        <Route path="/products" element={<ProductListPage t={t}/>} />
+        <Route path="/products/:product" element={<SingleProduct t={t}/>} />
+        <Route path={"/login"} element={<LogIn t={t}/>} />
+        <Route path="/signup" element={<SignUp t={t}/>} />
+        <Route path="/cart" element={<CartPage t={t}/>} />
+        <Route path="/favorites" element={<WishlistPage t={t}/>} />
+        <Route path="*" element={<NotFound t={t}/>} />
       </Routes>
       <Footer />
     </>

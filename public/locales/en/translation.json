@@ -1,0 +1,10 @@
+{
+  "title": "languages",
+  "description": {
+    "products": "products",
+    "profile": "Profile",
+    "logout": "Log Out",
+    "login": "Log In",
+    "signup": "Sign Up"
+  }
+}

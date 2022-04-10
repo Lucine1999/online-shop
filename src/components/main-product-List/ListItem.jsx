@@ -9,8 +9,8 @@ import filterProductList from "./filterByType";
 
 function ListItem() {
     const location = useLocation();
-    let AllProduct = useSelector(selectProducts);
-    let [products,setProducts] = useState(AllProduct);
+    let allProduct = useSelector(selectProducts);
+    let [products, setProducts] = useState([]);
     const [previusPage, setPreviusPage] = useState(parseInt(location.search?.split('=')[1] - 1 || 0));
     const [currentPage, setCurrentPage] = useState(parseInt(location.search?.split('=')[1] || 1));
 
@@ -28,13 +28,13 @@ function ListItem() {
     }, [currentPage])
 
     useEffect(() => {
-        if (checkCategories.length > 0) {
-            setProducts(filterProductList(AllProduct, checkCategories))
-        } else {
-            setProducts(AllProduct)
-        }
+        setProducts(allProduct)
+    }, [allProduct])
 
-    },[checkCategories])
+    useEffect(() => {
+        checkCategories.length > 0 ? setProducts(filterProductList(allProduct, checkCategories))
+            : setProducts(allProduct)
+    }, [checkCategories])
 
     return (
         <main className="product-list">

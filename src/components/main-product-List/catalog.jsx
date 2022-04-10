@@ -22,7 +22,6 @@ function Catalog() {
         const labelId = `checkbox-list-label-${value}`;
 
         return (
-
           <ListItem
             key={value}
             disablePadding
@@ -34,10 +33,8 @@ function Catalog() {
                     categoriId: `${value.split('-')[1]}`,
                   })
                 )
-              } dense>
+              }>
               <Checkbox
-                edge="start"
-                tabIndex={-1}
                 disableRipple
                 inputProps={{ 'aria-labelledby': labelId }}
               />

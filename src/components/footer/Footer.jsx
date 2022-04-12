@@ -5,7 +5,8 @@ import YouTubeIcon from '@mui/icons-material/YouTube';
 
 
 
-function Footer() {
+function Footer({t}) {
+
 
     const socialIconsStyle={
         marginRight:"15px",
@@ -16,7 +17,7 @@ function Footer() {
         <footer className="footer ">
             <div className="container cards-container footer-container">
                 <ul>
-                    <h2 className="ul-heder">Contact Us</h2>
+                    <h2 className="ul-heder">{t('description.contactUs')}</h2>
                     <li><span>Address:</span> 123 Main Street</li>
                     <li><span>Call to:</span> (012) 800 456 789-987</li>
                     <li><span>Mail to:</span> yourmail@example.com</li>
@@ -28,19 +29,19 @@ function Footer() {
                     </li>
                 </ul>
                 <ul>
-                    <h2 className="ul-heder">Information</h2>
+                    <h2 className="ul-heder">{t('description.information')}</h2>
                     <li>About Us</li>
                     <li>Delivery Information</li>
                     <li>Return Policy</li>
                 </ul>
                 <ul>
-                    <h2 className="ul-heder">My Account</h2>
+                    <h2 className="ul-heder">{t('description.myAccount')}</h2>
                     <li>123 Main Street, Anytown</li>
                     <li><span>Call to:</span> (012) 800 456 789-987</li>
                     <li><span>Mail to:</span> yourmail@example.com</li>
                 </ul>
                 <ul>
-                    <h2 className="ul-heder">Newsletter</h2>
+                    <h2 className="ul-heder">{t('description.newsLetter')}</h2>
                     <li>123 Main Street, Anytown, CA 12345 - USA.</li>
                     <li><span>Call to:</span> (012) 800 456 789-987</li>
                     <li><span>Mail to:</span> yourmail@example.com</li>

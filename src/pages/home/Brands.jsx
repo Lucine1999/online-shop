@@ -1,3 +1,5 @@
+import { useTranslation} from 'react-i18next';
+
 function cardModel(img) {
   return (
     <div className="brand-logo">
@@ -7,10 +9,12 @@ function cardModel(img) {
 }
 
 function Brands() {
+  const {t} = useTranslation();
+
   return (
     <div>
       <h2 style={{ marginBottom: "50px", marginLeft: "20px" }}>
-        Մեր գործընկերները
+      {t('description.partner')}
       </h2>
       <div className="cards-container" style={{ marginBottom: "80px" }}>
         {cardModel(

@@ -4,15 +4,15 @@ import FavoriteCards from "./FavoriteCards";
 import Brands from "./Brands";
 import CarouselContainer from "./CarouselContainer";
 
-function HomePageContentAndFooter() {
+function HomePageContentAndFooter({t}) {
     return (
         <>
-            <CarouselContainer />
+            <CarouselContainer t={t}/>
             <div className="main container">
-                <FavoriteCards />
-                <MiniCards />
-                <OfferDiv />
-                <Brands />
+                <FavoriteCards t={t}/>
+                <MiniCards t={t}/>
+                <OfferDiv t={t}/>
+                <Brands t={t}/>
             </div>
         </>
     );

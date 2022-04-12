@@ -6,11 +6,20 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
 import Container from "@mui/material/Container";
-import Button from "@mui/material/Button";
+import Button from '@mui/material/Button';
 import Tooltip from "@mui/material/Tooltip";
-import MenuItem from "@mui/material/MenuItem";
 import Badge from "@mui/material/Badge";
+import FormControl from "@material-ui/core/FormControl";
+import Select from "@material-ui/core/Select";
+import { makeStyles } from "@material-ui/core/styles";
+import InputLabel from "@material-ui/core/InputLabel";
+import USA from "../../assets/flags/usa.png";
+import Armenia from "../../assets/flags/armenia.png";
+
+
+
 import {
   AccountCircle,
   Favorite,
@@ -27,7 +36,63 @@ import {
 } from "../../features/products/productsSlice";
 import logo from "../../assets/logo.jpg";
 
+const countries = [
+  {
+    code: "AM",
+    label: "Armenia",
+    src: Armenia,
+    link: " ",
+    value: "AM"
+  },
+  {
+    code: "EN",
+    label: "USA",
+    src: USA,
+    link: " ",
+    value: "EM"
+  } 
+];
+
+const useStyles = makeStyles(theme => ({
+  button: {
+    display: "block",
+    marginTop: theme.spacing(2)
+   
+
+  },
+  formControl: {
+    marginLeft: theme.spacing(4),
+    minWidth: 60,
+    backgroundColor: "transparent",
+    
+  },
+  select: {
+    textAlign: "center",
+    textDecoration: "none"
+  }
+}));
+
 const Navbar = ({ changeLanguage, t }) => {
+
+  const classes = useStyles();
+  const [country, setCountry] = React.useState(Armenia);
+  const [open, setOpen] = React.useState(false);
+  
+
+  const handleChange = event => {
+    setCountry (event.target.value);
+    changeLanguage(event.target.value)
+    console.log(event.target)
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
   const user = useSelector(selectUser);
   const cartItems = useSelector(selectCart);
   const wishlistItems = useSelector(selectWishlist);
@@ -247,12 +312,42 @@ const Navbar = ({ changeLanguage, t }) => {
             </Menu>
           </Box>
           <Box className="App-header">
-            <button type="button" onClick={() => changeLanguage("am")}>
+
+            {/* <button type="button" onClick={() => changeLanguage("am")}>
               AM
             </button>
             <button type="button" onClick={() => changeLanguage("en")}>
               EN
-            </button>
+            </button> */}
+
+<form autoComplete="off">
+      <FormControl className={classes.formControl}>
+        <InputLabel htmlFor="open-select" />
+        <Select
+        
+          open={open}
+          onClose={handleClose}
+          onOpen={handleOpen}
+          value={country}
+          name="country"
+          onChange ={handleChange}
+          inputProps={{
+            id: "open-select"
+          }}
+        >
+          {countries.map((option, key) => (
+            <MenuItem 
+            value={option.code} key={key} >
+              <img src={option.src} alt={option.label} />{" "}
+            </MenuItem>
+          ))}
+        </Select>
+      </FormControl>
+    </form>
+ 
+
+
+
           </Box>
         </Toolbar>
       </Container>

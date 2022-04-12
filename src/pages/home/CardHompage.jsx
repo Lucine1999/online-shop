@@ -10,6 +10,7 @@ import { CardActions } from "@mui/material";
 // import FavoriteIcon from '@mui/icons-material/Favorite';
 
 function CardHomePage(obj, key) {
+
     const buyButton = {
         backgroundColor: "#1f989e",
         color: "white",

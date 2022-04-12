@@ -1,10 +1,40 @@
 {
   "title": "languages",
   "description": {
-    "products": "products",
+    "products": "Products",
     "profile": "Profile",
     "logout": "Log Out",
     "login": "Log In",
-    "signup": "Sign Up"
+    "signup": "Sign Up",
+    "favoriteProducts": "Favorite Products",
+    "shoppingCart": "Shopping Cart",
+    "buyNow": "Buy now",
+    "image1": "New collection of toys",
+    "image2": "Large selection of fabrics",
+    "image3": "The softest corner for babies",
+    "image": "Image",
+    "product1": "Product",
+    "price": "Price",
+    "qty": "QTY",
+    "total": "Total",
+    "remove": "Remove",
+    "empty": "Your cart is empty",
+    "goToShop": "Go To Shop",
+    "partner": "Our Partners",
+    "type": "Type",
+    "clothes": "Clothes",
+    "shoes": "Shoes",
+    "baskets": "Baskets",
+    "roomAccessories": "Room Accessories",
+    "wishlist": "Wishlist",
+    "add": "Add",
+    "contactUs": "Contact Us",
+    "information":"Information",
+    "myAccount": "My Account",
+    "newsLetter": "Newsletter",
+    "addToCart": "Add To cart"
+
+
+
   }
 }

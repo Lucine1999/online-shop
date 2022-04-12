@@ -22,9 +22,13 @@ import RemoveIcon from "@mui/icons-material/Remove";
 import IconButton from "@mui/material/IconButton";
 import InputBase from "@mui/material/InputBase";
 import { Link } from "react-router-dom";
+import { useTranslation} from 'react-i18next';
+
 
 
 export default function WishlistProducts() {
+  const {t} = useTranslation();
+
   const user = useSelector(selectUser);
   const user_id = user ? user.uid : 0;
   const dispatch = useDispatch();
@@ -53,19 +57,19 @@ export default function WishlistProducts() {
           <TableHead>
             <TableRow>
               <TableCell style={titleStyle} align="center">
-                Image
+              {t('description.image')}
               </TableCell>
               <TableCell style={titleStyle} align="center">
-                Product
+              {t('description.product1')}
               </TableCell>
               <TableCell style={titleStyle} align="center">
-                Price
+              {t('description.price')}
+              </TableCell>
+              <TableCell style={titleStyle} align="right">
+              {t('description.qty')}
               </TableCell>
               <TableCell style={titleStyle} align="center">
-                Add
-              </TableCell>
-              <TableCell style={titleStyle} align="center">
-                Remove
+              {t('description.remove')}
               </TableCell>
             </TableRow>
           </TableHead>
@@ -89,7 +93,7 @@ export default function WishlistProducts() {
                   {row.price}
                   {row.currency}
                 </TableCell>
-                <TableCell align="right">
+                <TableCell align="center">
                   {row.id in cartItems ? (
                     <>
                       <Paper
@@ -159,7 +163,7 @@ export default function WishlistProducts() {
                         )
                       }
                     >
-                      Add to cart
+                      {t('description.addToCart')}
                     </Button>
                   )}
                 </TableCell>
@@ -200,7 +204,7 @@ export default function WishlistProducts() {
             variant="h4"
             gutterBottom
           >
-            Your Wishlist is Empty
+             {t('description.empty')}
           </Typography>
           <Button
             style={{
@@ -212,7 +216,7 @@ export default function WishlistProducts() {
             to="/products"
             variant="contained"
           >
-            Go to shop
+            {t('description.goToShop')}
           </Button>
         </Paper>
       )}

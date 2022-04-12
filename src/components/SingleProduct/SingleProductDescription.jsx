@@ -6,19 +6,19 @@ const SingleProductDescription = ({ productName, productPrice }) => {
         <div className='singleProductDescription'>
             <form action="">
                 <h1 className='singleProductTitle'>
-                {productName}
+                    {productName}
                 </h1>
                 <p className='singleProductSubtitle'>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa, impedit vel laudantium fugit soluta assumenda blanditiis eum nostrum debitis, id est placeat quam numquam accusamus aspernatur neque autem labore natus!
+                    Made in Armenia
                 </p>
                 <span className='product_avelability'>
-                    product.quantity
+                   Quantity
                 </span>
                 <div className="productPrice-wrapper">
                     <span className="price__text">{productPrice}<span className='amd_container'>դր.</span></span>
                     <div className="product__price-note"></div>
                 </div>
-                <Button style={{marginBottom: "20px", paddingLeft: "50px", paddingRight: "50px"}} size='large' variant='contained'>ADD</Button>
+                <Button style={{ marginBottom: "20px", paddingLeft: "50px", paddingRight: "50px" }} size='large' variant='contained'>ADD</Button>
                 <div className="info__tab">
                     <div className='info__tab-container'>
                         <span className="info__tab-label">Մանրամասներ</span>
@@ -31,7 +31,7 @@ const SingleProductDescription = ({ productName, productPrice }) => {
                             <div className="info__detail-item-space"></div>
                             <div className="info__detail-item-value">prop</div>
                         </div>
-                        </div>
+                    </div>
                 </div>
             </form>
 

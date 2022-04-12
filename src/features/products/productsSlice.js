@@ -66,7 +66,6 @@ export const productsSlice = createSlice({
 
             const currentIndex = state.checkedCategories.indexOf(value);
 
-
             if (currentIndex === -1) {
                 state.checkedCategories.push(value)
 

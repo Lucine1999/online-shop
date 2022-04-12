@@ -7,6 +7,7 @@ import { useLocation } from 'react-router-dom'
 import { selectUser } from "../../features/users/usersSlice";
 import filterProductList from "./filterByType";
 
+
 function ListItem() {
     const location = useLocation();
     let allProduct = useSelector(selectProducts);

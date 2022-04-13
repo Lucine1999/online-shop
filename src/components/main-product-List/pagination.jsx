@@ -3,15 +3,22 @@ import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 import { PaginationItem } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 
 export default function PaginationRounded({page, productCount, setCurrentPage, currentPage}) {
+  const navigate = useNavigate();
   let pageCount = Math.ceil(page.length / productCount);
 
+  React.useEffect(() => {
+    pageCount === 1 && setCurrentPage(1);
+    pageCount === 1 && navigate('/products');
+  }, [pageCount])
+  
   return (
     <Stack spacing={2} sx={{margin:'auto'}}>
       <Pagination
-       key={currentPage}
-       defaultPage={currentPage}
+       key={pageCount === 1 ? 1 : currentPage}
+       defaultPage={pageCount === 1 ? 1 : currentPage}
        count={pageCount} 
        variant="outlined" 
        shape="rounded"

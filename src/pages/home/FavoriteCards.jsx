@@ -1,13 +1,11 @@
 import { useSelector } from "react-redux";
 import { selectProducts } from "../../features/products/productsSlice";
 import BoxComponent from "../products/BoxComponent";
-import { useTranslation} from 'react-i18next';
 
 
 
-function FavoriteCards() {
+function FavoriteCards({t}) {
   const products = useSelector(selectProducts);
-  const {t} = useTranslation();
 
   return (
     

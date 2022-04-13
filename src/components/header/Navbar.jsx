@@ -8,17 +8,15 @@ import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import Container from "@mui/material/Container";
-import Button from '@mui/material/Button';
+import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import Badge from "@mui/material/Badge";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import { makeStyles } from "@material-ui/core/styles";
-import InputLabel from "@material-ui/core/InputLabel";
+
 import USA from "../../assets/flags/usa.png";
 import Armenia from "../../assets/flags/armenia.png";
-
-
 
 import {
   AccountCircle,
@@ -38,51 +36,44 @@ import logo from "../../assets/logo.jpg";
 
 const countries = [
   {
-    code: "AM",
+    code: "am",
     label: "Armenia",
     src: Armenia,
-    link: " ",
-    value: "AM"
+    value: "AM",
   },
   {
-    code: "EN",
+    code: "en",
     label: "USA",
     src: USA,
-    link: " ",
-    value: "EM"
-  } 
+    value: "EN",
+  },
 ];
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   button: {
     display: "block",
-    marginTop: theme.spacing(2)
-   
-
+    marginTop: theme.spacing(2),
   },
-  formControl: {
-    marginLeft: theme.spacing(4),
-    minWidth: 60,
-    backgroundColor: "transparent",
-    
+  icon:{
+    display: 'none'
   },
   select: {
-    textAlign: "center",
-    textDecoration: "none"
+    background: "transparent",
+    '&:focus': {
+      background: "transparent",
+    }
   }
 }));
 
 const Navbar = ({ changeLanguage, t }) => {
-
   const classes = useStyles();
-  const [country, setCountry] = React.useState(Armenia);
+  const [country, setCountry] = React.useState("am");
   const [open, setOpen] = React.useState(false);
-  
 
-  const handleChange = event => {
-    setCountry (event.target.value);
-    changeLanguage(event.target.value)
-    console.log(event.target)
+  const handleChange = (event) => {
+    setCountry(event.target.value);
+    console.log(typeof event.target.value);
+    changeLanguage(event.target.value);
   };
 
   const handleClose = () => {
@@ -100,8 +91,10 @@ const Navbar = ({ changeLanguage, t }) => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
-  const pages = [{ page: "products", name: t('description.products') }];
-  const settings = user ? [t('description.profile'), t('description.logout')] : [t('description.login'), t('description.signup')];
+  const pages = [{ page: "products", name: t("description.products") }];
+  const settings = user
+    ? [t("description.profile"), t("description.logout")]
+    : [t("description.login"), t("description.signup")];
 
   const dispatch = useDispatch();
 
@@ -271,7 +264,7 @@ const Navbar = ({ changeLanguage, t }) => {
                 sx={{ p: 0 }}
                 size="large"
               >
-                <AccountCircle />
+                <AccountCircle style={{marginLeft:"10px"}}/>
               </IconButton>
             </Tooltip>
             <Menu
@@ -301,10 +294,15 @@ const Navbar = ({ changeLanguage, t }) => {
                     }
                   }}
                   component={Link}
-                  to={ `${setting === "Log Out" ? "/"
-                          : setting === "Log In" || setting === "Մուտք" ? "/login" 
-                          : setting === "Sign Up" || setting === "Գրանցվել" ? "/signup" : "/"}`
-    }
+                  to={`${
+                    setting === "Log Out"
+                      ? "/"
+                      : setting === "Log In" || setting === "Մուտք"
+                      ? "/login"
+                      : setting === "Sign Up" || setting === "Գրանցվել"
+                      ? "/signup"
+                      : "/"
+                  }`}
                 >
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
@@ -312,42 +310,32 @@ const Navbar = ({ changeLanguage, t }) => {
             </Menu>
           </Box>
           <Box className="App-header">
-
-            {/* <button type="button" onClick={() => changeLanguage("am")}>
-              AM
-            </button>
-            <button type="button" onClick={() => changeLanguage("en")}>
-              EN
-            </button> */}
-
-<form autoComplete="off">
-      <FormControl className={classes.formControl}>
-        <InputLabel htmlFor="open-select" />
-        <Select
-        
-          open={open}
-          onClose={handleClose}
-          onOpen={handleOpen}
-          value={country}
-          name="country"
-          onChange ={handleChange}
-          inputProps={{
-            id: "open-select"
-          }}
-        >
-          {countries.map((option, key) => (
-            <MenuItem 
-            value={option.code} key={key} >
-              <img src={option.src} alt={option.label} />{" "}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-    </form>
- 
-
-
-
+          <Box sx={{ minWidth: 120 }}>
+              <FormControl
+                style={{
+                  minWidth: "45px",
+                  marginTop: "7px",
+                  marginLeft: "24px",
+                  backgroundColor: 'transparent'
+                }}
+              >
+                <Select
+                  value={country}
+                  open={open}
+                  onClose={handleClose}
+                  onOpen={handleOpen}
+                  onChange={handleChange}
+                  disableUnderline
+                  // classes={{icon:classes.icon, select:classes.select}}
+                >
+                  {countries.map((option) => (
+                    <MenuItem value={option.code} key={option.code}>
+                      <img style={{width:"20px"}} src={option.src} alt={option.label} />{" "}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+            </Box>
           </Box>
         </Toolbar>
       </Container>

@@ -1,10 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useTranslation} from 'react-i18next';
 
 
-export default function CartHeader() {
-    const {t} = useTranslation();
+export default function CartHeader({t}) {
     
     return (
         

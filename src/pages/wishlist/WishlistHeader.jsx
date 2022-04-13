@@ -1,10 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useTranslation} from 'react-i18next';
 
 
-export default function WishlistHeader() {
-    const {t} = useTranslation();
+export default function WishlistHeader({t}) {
 
     return (
         <div className="wishlist-header-section">

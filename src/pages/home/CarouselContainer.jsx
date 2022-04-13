@@ -7,13 +7,11 @@ import image3 from "../../assets/banner3.jpg";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "./Home.css";
 import { styled } from "@mui/material/styles";
-import { useTranslation} from 'react-i18next';
 
 
 
 
-const CarouselContainer = () => {
-    const {t} = useTranslation();
+const CarouselContainer = ({t}) => {
 
     const images = [
         { img: image1, text: [t('description.image1')] },

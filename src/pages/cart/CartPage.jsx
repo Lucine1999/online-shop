@@ -6,12 +6,12 @@ import { Container } from "@mui/material";
 
 import "./CartPage.css";
 
-export default function CartPage() {
+export default function CartPage({t}) {
     return (
         <>
-            <CartHeader />
+            <CartHeader t={t}/>
             <Container style={{ marginTop: "80px", marginBottom: "20px" }}>
-                <CartProducts />
+                <CartProducts t={t}/>
                 
             </Container>
         </>

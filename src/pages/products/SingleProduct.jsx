@@ -7,7 +7,7 @@ import { selectCart, selectProducts } from "../../features/products/productsSlic
 import { selectUser } from "../../features/users/usersSlice";
 import "./SingleProduct.css";
 
-const SingleProduct = () => {
+const SingleProduct = ({t}) => {
   let { product } = useParams();
   const products = useSelector(selectProducts);
   const cartItems = useSelector(selectCart);
@@ -30,7 +30,7 @@ const SingleProduct = () => {
               <SingleProductPhoto
                 imgUrl={currentProduct[0].img}
               />
-              <SingleProductDescription cartItems={cartItems} productName={currentProduct[0].name} productPrice={currentProduct[0].price} productsID={currentProduct[0].id} userID={user_id}/>
+              <SingleProductDescription t = {t} cartItems={cartItems} productName={currentProduct[0].name} productPrice={currentProduct[0].price} productsID={currentProduct[0].id} userID={user_id}/>
             </>
           ) : <div>Loading..</div>}
         </div>

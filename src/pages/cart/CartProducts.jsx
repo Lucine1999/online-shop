@@ -6,7 +6,6 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import { Paper, Typography, Button } from "@mui/material";
-import { useTranslation} from 'react-i18next';
 
 // import Container from "@material-ui/core/Container";
 
@@ -27,8 +26,7 @@ import {
   removeFromCart,
 } from "../../features/products/productsSlice";
 
-export default function CartProducts() {
-  const {t} = useTranslation();
+export default function CartProducts({t}) {
 
   const user = useSelector(selectUser);
   const user_id = user ? user.uid : 0;

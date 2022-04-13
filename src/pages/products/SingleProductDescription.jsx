@@ -14,7 +14,8 @@ const SingleProductDescription = ({
     productsID,
     userID,
     cartItems,
-}) => {
+    t
+}, ) => {
     const dispatch = useDispatch();
 
     return (
@@ -22,16 +23,13 @@ const SingleProductDescription = ({
             <form action="">
                 <h1 className="singleProductTitle">{productName}</h1>
                 <p className="singleProductSubtitle">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Ipsa, impedit vel laudantium fugit soluta assumenda
-                    blanditiis eum nostrum debitis, id est placeat quam numquam
-                    accusamus aspernatur neque autem labore natus!
+                {t('description.aboutProduct')}
                 </p>
-                <span className="product_avelability">product.quantity</span>
+                <span className="product_avelability">{t('description.prQty')}</span>
                 <div className="productPrice-wrapper">
                     <span className="price__text">
                         {productPrice}
-                        <span className="amd_container">դր.</span>
+                        <span className="amd_container">{t('description.amd')}.</span>
                     </span>
                     <div className="product__price-note"></div>
                 </div>
@@ -103,13 +101,13 @@ const SingleProductDescription = ({
                             )
                         }
                     >
-                        Add to cart
+                       {t('description.addToCart')}
                     </Button>
                 )}
 
                 <div className="info__tab">
                     <div className="info__tab-container">
-                        <span className="info__tab-label">Մանրամասներ</span>
+                        <span className="info__tab-label">{t('description.descr')}</span>
                     </div>
                 </div>
                 <div className="info__tabs-body">

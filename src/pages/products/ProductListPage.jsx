@@ -3,13 +3,13 @@ import ListItem from './ListItem';
 import Catalog from './Catalog';
 
 
-function ProductListPage() {
+function ProductListPage({t}) {
   return (
     <>
       <main className='product-list-page'>
         <div style={{width:"220px"}}>
           {/* <FilterByCost /> */}
-          <Catalog />
+          <Catalog t={t}/>
         </div>
         <ListItem />
       </main>

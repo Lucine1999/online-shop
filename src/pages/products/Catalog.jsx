@@ -5,11 +5,9 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import Checkbox from "@mui/material/Checkbox";
 import ListSubheader from "@mui/material/ListSubheader";
-import { useTranslation} from 'react-i18next';
 
 
-function Catalog() {
-    const {t} = useTranslation();
+function Catalog({t}) {
 
     const [checked, setChecked] = React.useState([0]);
 

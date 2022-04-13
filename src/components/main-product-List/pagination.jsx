@@ -10,8 +10,8 @@ export default function PaginationRounded({page, productCount, setCurrentPage, c
   let pageCount = Math.ceil(page.length / productCount);
 
   React.useEffect(() => {
-    pageCount === 1 && setCurrentPage(1);
-    pageCount === 1 && navigate('/products');
+    setCurrentPage(1);
+    navigate('/products');
   }, [pageCount])
   
   return (

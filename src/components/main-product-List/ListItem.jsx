@@ -2,10 +2,11 @@ import BoxComponent from "../main-product-List/BoxComponent";
 import PaginationRounded from "../main-product-List/pagination";
 import { useSelector } from "react-redux";
 import { selectProducts, selectWishlist, selectCategories } from "../../features/products/productsSlice";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useLocation } from 'react-router-dom'
 import { selectUser } from "../../features/users/usersSlice";
 import filterProductList from "./filterByType";
+import CurrentPageContext from "../context";
 
 
 function ListItem() {
@@ -13,7 +14,7 @@ function ListItem() {
     let allProduct = useSelector(selectProducts);
     let [products, setProducts] = useState([]);
     const [previusPage, setPreviusPage] = useState(parseInt(location.search?.split('=')[1] - 1 || 0));
-    const [currentPage, setCurrentPage] = useState(parseInt(location.search?.split('=')[1] || 1));
+    const {currentPage, setCurrentPage} = useContext(CurrentPageContext);
 
     const checkCategories = useSelector(selectCategories);
 

@@ -5,12 +5,14 @@ import Checkbox from '@mui/material/Checkbox';
 import ListSubheader from '@mui/material/ListSubheader';
 import { addTocategories } from "../../features/products/productsSlice";
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 
 
-function Catalog() {
+function Catalog({setCurrentPage}) {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   return (
     <List sx={{ width: '100%', maxWidth: 320, bgcolor: 'background.paper' }}>
@@ -23,13 +25,19 @@ function Catalog() {
             key={value}
             disablePadding>
             <FormGroup>
-              <FormControlLabel control={<Checkbox onClick={() =>
+              <FormControlLabel control={<Checkbox 
+              onChange={() => {
+                navigate('/products');
+                setCurrentPage(1);
+              }} 
+              onClick={() =>
                 dispatch(
                   addTocategories({
                     categoriId: `${value.split('-')[1]}`,
                   })
                 )
-              } />} label={`${value.split('-')[0]}`} />
+              } />} 
+              label={`${value.split('-')[0]}`} />
             </FormGroup>
           </ListItem>
         );

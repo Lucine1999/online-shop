@@ -202,7 +202,7 @@ export default function WishlistProducts({t}) {
             variant="h4"
             gutterBottom
           >
-             {t('description.empty')}
+             {t('description.emptyWishlist')}
           </Typography>
           <Button
             style={{

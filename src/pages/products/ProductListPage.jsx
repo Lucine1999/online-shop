@@ -11,7 +11,7 @@ function ProductListPage({t}) {
           {/* <FilterByCost /> */}
           <Catalog t={t}/>
         </div>
-        <ListItem />
+        <ListItem t={t}/>
       </main>
     </>
   );

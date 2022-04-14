@@ -15,7 +15,7 @@ import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import { makeStyles } from "@material-ui/core/styles";
 
-import USA from "../../assets/flags/usa.png";
+import USA from "../../assets/flags/united-states.png";
 import Armenia from "../../assets/flags/armenia.png";
 
 import {
@@ -32,7 +32,7 @@ import {
   selectCart,
   selectWishlist,
 } from "../../features/products/productsSlice";
-import logo from "../../assets/logo.jpg";
+import logo from "../../assets/logo.png";
 
 const countries = [
   {
@@ -72,7 +72,6 @@ const Navbar = ({ changeLanguage, t }) => {
 
   const handleChange = (event) => {
     setCountry(event.target.value);
-    console.log(typeof event.target.value);
     changeLanguage(event.target.value);
   };
 
@@ -230,9 +229,9 @@ const Navbar = ({ changeLanguage, t }) => {
             ))}
           </Box>
           <Box sx={{ flexGrow: 0 }}>
-            <IconButton size="large">
+            {/* <IconButton size="large">
               <Search />
-            </IconButton>
+            </IconButton> */}
 
             <IconButton size="large" component={Link} to="/cart">
               <Badge
@@ -284,7 +283,6 @@ const Navbar = ({ changeLanguage, t }) => {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                //setting.toLowerCase().replace(/\s/g, '') === 'logout') ?  logoutOfApp() : null;
                 <MenuItem
                   key={setting}
                   onClick={() => {
@@ -314,7 +312,7 @@ const Navbar = ({ changeLanguage, t }) => {
               <FormControl
                 style={{
                   minWidth: "45px",
-                  marginTop: "7px",
+                  marginTop: "6px",
                   marginLeft: "24px",
                   backgroundColor: 'transparent'
                 }}
@@ -326,11 +324,11 @@ const Navbar = ({ changeLanguage, t }) => {
                   onOpen={handleOpen}
                   onChange={handleChange}
                   disableUnderline
-                  // classes={{icon:classes.icon, select:classes.select}}
+                  classes={{icon:classes.icon, select:classes.select}}
                 >
                   {countries.map((option) => (
                     <MenuItem value={option.code} key={option.code}>
-                      <img style={{width:"20px"}} src={option.src} alt={option.label} />{" "}
+                      <img style={{width:"24px"}} src={option.src} alt={option.label} />{" "}
                     </MenuItem>
                   ))}
                 </Select>

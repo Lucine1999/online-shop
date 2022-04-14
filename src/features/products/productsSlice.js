@@ -6,6 +6,7 @@ export const productsSlice = createSlice({
     products: [],
     cartItems: {},
     wishlistItems: [],
+    checkedCategories: [],
   },
   reducers: {
     getProducts: (state, action) => {
@@ -49,7 +50,6 @@ export const productsSlice = createSlice({
           };
         }
       }
-
       state.cartItems = cartProducts[userId];
       cartProducts_str = JSON.stringify(cartProducts);
       localStorage.setItem("cartProducts", cartProducts_str);
@@ -125,6 +125,17 @@ export const productsSlice = createSlice({
         }
       }
     },
+    addToCategories: (state, action) => {
+      let value = action.payload.categoryId;
+
+      const currentIndex = state.checkedCategories.indexOf(value);
+
+      if (currentIndex === -1) {
+        state.checkedCategories.push(value);
+      } else {
+        state.checkedCategories.splice(currentIndex, 1);
+      }
+    },
   },
 });
 
@@ -135,10 +146,12 @@ export const {
   removeFromCart,
   addToWishlist,
   getWishlistItems,
+  addToCategories,
 } = productsSlice.actions;
 
 export const selectProducts = (state) => state.products.products;
 export const selectCart = (state) => state.products.cartItems;
 export const selectWishlist = (state) => state.products.wishlistItems;
+export const selectCategories = (state) => state.products.checkedCategories;
 
 export default productsSlice.reducer;

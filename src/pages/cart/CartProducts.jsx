@@ -52,7 +52,7 @@ export default function CartProducts({t}) {
 
   return (
     <TableContainer component={Paper} style={{ marginBottom: "20px" }}>
-      {filteredProducts.length > 0 ? (
+      {filteredProducts?.length ? (
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
@@ -202,7 +202,6 @@ export default function CartProducts({t}) {
             component={Link}
             to="/products"
             variant="contained"
-            
           >
             {t('description.goToShop')}
           </Button>

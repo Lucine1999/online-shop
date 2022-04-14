@@ -6,12 +6,12 @@ import { Link } from 'react-router-dom';
 
 export default function PaginationRounded({page, productCount, setCurrentPage, currentPage}) {
   let pageCount = Math.ceil(page.length / productCount);
-
+  
   return (
     <Stack spacing={2} sx={{margin:'auto'}}>
       <Pagination
-       key={currentPage}
-       defaultPage={currentPage}
+       key={pageCount === 1 ? 1 : currentPage}
+       defaultPage={pageCount === 1 ? 1 : currentPage}
        count={pageCount} 
        variant="outlined" 
        shape="rounded"

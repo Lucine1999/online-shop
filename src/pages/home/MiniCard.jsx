@@ -18,7 +18,7 @@ function cardModel(img, heder, text) {
     )
 };
 
-function MiniCards() {
+function MiniCards({t}) {
     return (
         <div className="cards-container" style={{marginBottom:"80px"}}>
             {cardModel('https://template.hasthemes.com/destry/destry/assets/images/icons/feature-icon-2.png', 'FREE SHIPPING', 'Free shipping on all order')}

@@ -16,7 +16,7 @@ import { getWishlistItems } from "../../features/products/productsSlice";
 
 const theme = createTheme();
 
-function LogIn() {
+function LogIn({t}) {
   const user = useSelector(selectUser);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -66,7 +66,7 @@ function LogIn() {
           }}
         >
           <Typography component="h1" variant="h5">
-            Log In
+            {t('description.login')}
           </Typography>
           <Box component="form" noValidate sx={{ mt: 1 }}>
             <TextField
@@ -74,7 +74,7 @@ function LogIn() {
               required
               fullWidth
               id="email"
-              label="Email Address"
+              label={t('description.email')}
               name="email"
               autoComplete="email"
               autoFocus
@@ -85,7 +85,7 @@ function LogIn() {
               required
               fullWidth
               name="password"
-              label="Password"
+              label={t('description.password')}
               type="password"
               id="password"
               autoComplete="current-password"
@@ -98,7 +98,7 @@ function LogIn() {
               sx={{ height: "45px", mt: 3, mb: 2 }}
               onClick={loginToApp}
             >
-              Log In
+              {t('description.login')}
             </Button>
             <Grid container></Grid>
           </Box>

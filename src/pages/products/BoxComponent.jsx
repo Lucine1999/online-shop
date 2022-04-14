@@ -106,7 +106,7 @@ function BoxComponent(props) {
                                     )
                                 }
                             >
-                                Add to cart
+                                {props.t('description.addToCart')}
                                 <ShoppingCartOutlinedIcon
                                     style={{ marginLeft: "5px", width: "18px" }}
                                 />

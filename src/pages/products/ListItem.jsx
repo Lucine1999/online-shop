@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { useLocation } from 'react-router-dom'
 import { selectUser } from "../../features/users/usersSlice";
 
-function ListItem() {
+function ListItem({t}) {
     const location = useLocation();
     const products = useSelector(selectProducts);
     const [previusPage, setPreviusPage] = useState(parseInt(location.search?.split('=')[1] - 1 || 0));
@@ -30,7 +30,7 @@ function ListItem() {
             <div className="items">
                 {products ? products.map((value, idx) => {
                     if (idx < currentPage * productCount && idx >= previusPage * productCount) {
-                        return <BoxComponent key={value.id} userId={user_id} cartItems={cartItems} wishlistItems={wishlistItems} product ={value}/>
+                        return <BoxComponent key={value.id} userId={user_id} cartItems={cartItems} wishlistItems={wishlistItems} product ={value} t={t}/>
                     }
                 }) : null}
             </div>

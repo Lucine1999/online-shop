@@ -6,7 +6,9 @@ import ListItemText from "@mui/material/ListItemText";
 import Checkbox from "@mui/material/Checkbox";
 import ListSubheader from "@mui/material/ListSubheader";
 
-function Catalog() {
+
+function Catalog({t}) {
+
     const [checked, setChecked] = React.useState([0]);
 
     const handleToggle = (value) => () => {
@@ -26,8 +28,8 @@ function Catalog() {
         <List
             sx={{ width: "100%", maxWidth: 320, bgcolor: "background.paper" }}
         >
-            {<ListSubheader>Տեսակ</ListSubheader>}
-            {["Հագուստ", "Կոշիկներ", "Զամբյուղներ", "Սենյակի պարագաներ"].map(
+            {<ListSubheader> {t('description.type')} </ListSubheader>}
+            {[t('description.clothes'), t('description.shoes'), t('description.baskets'), t('description.roomAccessories')].map(
                 (value) => {
                     const labelId = `checkbox-list-label-${value}`;
 

@@ -19,7 +19,7 @@ import { Navigate } from "react-router-dom";
 
 const theme = createTheme();
 
-function SignUp() {
+function SignUp({t}) {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -82,7 +82,7 @@ function SignUp() {
           }}
         >
           <Typography component="h1" variant="h5">
-            Sign Up
+            {t('description.signup')}
           </Typography>
           <Box
             component="form"
@@ -96,7 +96,7 @@ function SignUp() {
                   required
                   fullWidth
                   id="firstName"
-                  label="First Name"
+                  label={t('description.firstName')}
                   autoFocus
                   onChange={(e) => setFirstName(e.target.value)}
                 />
@@ -106,7 +106,7 @@ function SignUp() {
                   required
                   fullWidth
                   id="lastName"
-                  label="Last Name"
+                  label={t('description.lastName')}
                   name="lastName"
                   onChange={(e) => setLastName(e.target.value)}
                 />
@@ -116,7 +116,7 @@ function SignUp() {
                   required
                   fullWidth
                   id="email"
-                  label="Email Address"
+                  label={t('description.email')}
                   name="email"
                   autoComplete="email"
                   onChange={(e) => setEmail(e.target.value)}
@@ -127,7 +127,7 @@ function SignUp() {
                   required
                   fullWidth
                   name="password"
-                  label="Password"
+                  label={t('description.password')}
                   type="password"
                   id="password"
                   autoComplete="new-password"
@@ -142,7 +142,7 @@ function SignUp() {
               sx={{ height: "45px", mt: 3, mb: 2 }}
               onClick={register}
             >
-              Sign Up
+              {t('description.signup')}
             </Button>
           </Box>
         </Box>

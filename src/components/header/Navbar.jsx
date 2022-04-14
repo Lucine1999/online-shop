@@ -6,11 +6,18 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
-import MenuItem from "@mui/material/MenuItem";
 import Badge from "@mui/material/Badge";
+import FormControl from "@material-ui/core/FormControl";
+import Select from "@material-ui/core/Select";
+import { makeStyles } from "@material-ui/core/styles";
+
+import USA from "../../assets/flags/united-states.png";
+import Armenia from "../../assets/flags/armenia.png";
+
 import {
   AccountCircle,
   Favorite,
@@ -25,9 +32,57 @@ import {
   selectCart,
   selectWishlist,
 } from "../../features/products/productsSlice";
-import logo from "../../assets/logo.jpg";
+import logo from "../../assets/logo.png";
+
+const countries = [
+  {
+    code: "am",
+    label: "Armenia",
+    src: Armenia,
+    value: "AM",
+  },
+  {
+    code: "en",
+    label: "USA",
+    src: USA,
+    value: "EN",
+  },
+];
+
+const useStyles = makeStyles((theme) => ({
+  button: {
+    display: "block",
+    marginTop: theme.spacing(2),
+  },
+  icon:{
+    display: 'none'
+  },
+  select: {
+    background: "transparent",
+    '&:focus': {
+      background: "transparent",
+    }
+  }
+}));
 
 const Navbar = ({ changeLanguage, t }) => {
+  const classes = useStyles();
+  const [country, setCountry] = React.useState("am");
+  const [open, setOpen] = React.useState(false);
+
+  const handleChange = (event) => {
+    setCountry(event.target.value);
+    changeLanguage(event.target.value);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
   const user = useSelector(selectUser);
   const cartItems = useSelector(selectCart);
   const wishlistItems = useSelector(selectWishlist);
@@ -35,8 +90,10 @@ const Navbar = ({ changeLanguage, t }) => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
-  const pages = [{ page: "products", name: t('description.products') }];
-  const settings = user ? [t('description.profile'), t('description.logout')] : [t('description.login'), t('description.signup')];
+  const pages = [{ page: "products", name: t("description.products") }];
+  const settings = user
+    ? [t("description.profile"), t("description.logout")]
+    : [t("description.login"), t("description.signup")];
 
   const dispatch = useDispatch();
 
@@ -172,9 +229,9 @@ const Navbar = ({ changeLanguage, t }) => {
             ))}
           </Box>
           <Box sx={{ flexGrow: 0 }}>
-            <IconButton size="large">
+            {/* <IconButton size="large">
               <Search />
-            </IconButton>
+            </IconButton> */}
 
             <IconButton size="large" component={Link} to="/cart">
               <Badge
@@ -206,7 +263,7 @@ const Navbar = ({ changeLanguage, t }) => {
                 sx={{ p: 0 }}
                 size="large"
               >
-                <AccountCircle />
+                <AccountCircle style={{marginLeft:"10px"}}/>
               </IconButton>
             </Tooltip>
             <Menu
@@ -226,7 +283,6 @@ const Navbar = ({ changeLanguage, t }) => {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                //setting.toLowerCase().replace(/\s/g, '') === 'logout') ?  logoutOfApp() : null;
                 <MenuItem
                   key={setting}
                   onClick={() => {
@@ -236,10 +292,15 @@ const Navbar = ({ changeLanguage, t }) => {
                     }
                   }}
                   component={Link}
-                  to={ `${setting === "Log Out" ? "/"
-                          : setting === "Log In" || setting === "Մուտք" ? "/login" 
-                          : setting === "Sign Up" || setting === "Գրանցվել" ? "/signup" : "/"}`
-    }
+                  to={`${
+                    setting === "Log Out"
+                      ? "/"
+                      : setting === "Log In" || setting === "Մուտք"
+                      ? "/login"
+                      : setting === "Sign Up" || setting === "Գրանցվել"
+                      ? "/signup"
+                      : "/"
+                  }`}
                 >
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
@@ -247,12 +308,32 @@ const Navbar = ({ changeLanguage, t }) => {
             </Menu>
           </Box>
           <Box className="App-header">
-            <button type="button" onClick={() => changeLanguage("am")}>
-              AM
-            </button>
-            <button type="button" onClick={() => changeLanguage("en")}>
-              EN
-            </button>
+          <Box sx={{ minWidth: 120 }}>
+              <FormControl
+                style={{
+                  minWidth: "45px",
+                  marginTop: "6px",
+                  marginLeft: "24px",
+                  backgroundColor: 'transparent'
+                }}
+              >
+                <Select
+                  value={country}
+                  open={open}
+                  onClose={handleClose}
+                  onOpen={handleOpen}
+                  onChange={handleChange}
+                  disableUnderline
+                  classes={{icon:classes.icon, select:classes.select}}
+                >
+                  {countries.map((option) => (
+                    <MenuItem value={option.code} key={option.code}>
+                      <img style={{width:"24px"}} src={option.src} alt={option.label} />{" "}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+            </Box>
           </Box>
         </Toolbar>
       </Container>

@@ -1,7 +1,6 @@
 import React, { useEffect, useState, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
-
 import Navbar from "./components/header/Navbar";
 import Footer from "./components/footer/Footer";
 import HomePageContentAndFooter from "./pages/home/HomeLayout";
@@ -76,9 +75,10 @@ function App() {
 
   return (
     <>
-      <Navbar changeLanguage={changeLanguage} t={t}/>  
+      <Navbar changeLanguage={changeLanguage} t={t}/>
+  
       <Routes>
-        <Route path="/" element={<HomePageContentAndFooter t={t}/>} />
+        <Route path="/" element={<HomePageContentAndFooter  t={t}/>} />
         <Route path="/products" element={<ProductListPage t={t}/>} />
         <Route path="/products/:product" element={<SingleProduct t={t}/>} />
         <Route path={"/login"} element={<LogIn t={t}/>} />
@@ -87,7 +87,7 @@ function App() {
         <Route path="/favorites" element={<WishlistPage t={t}/>} />
         <Route path="*" element={<NotFound t={t}/>} />
       </Routes>
-      <Footer />
+      <Footer t={t} />
     </>
   );
 }

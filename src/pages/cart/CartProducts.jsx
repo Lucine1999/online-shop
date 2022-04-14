@@ -6,6 +6,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import { Paper, Typography, Button } from "@mui/material";
+
 // import Container from "@material-ui/core/Container";
 
 import InputBase from "@mui/material/InputBase";
@@ -25,7 +26,8 @@ import {
   removeFromCart,
 } from "../../features/products/productsSlice";
 
-export default function CartProducts() {
+export default function CartProducts({t}) {
+
   const user = useSelector(selectUser);
   const user_id = user ? user.uid : 0;
 
@@ -54,19 +56,19 @@ export default function CartProducts() {
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell style={titleStyle}>Image</TableCell>
-              <TableCell style={titleStyle}>Product</TableCell>
+              <TableCell style={titleStyle}>{t('description.image')}</TableCell>
+              <TableCell style={titleStyle}>{t('description.product1')}</TableCell>
               <TableCell style={titleStyle} align="right">
-                Price
+              {t('description.price')}
               </TableCell>
               <TableCell style={titleStyle} align="right">
-                QTY
+              {t('description.qty')}
               </TableCell>
               <TableCell style={titleStyle} align="right">
-                Total
+              {t('description.total')}
               </TableCell>
               <TableCell style={titleStyle} align="right">
-                Remove
+              {t('description.remove')}
               </TableCell>
             </TableRow>
           </TableHead>
@@ -188,19 +190,21 @@ export default function CartProducts() {
             variant="h4"
             gutterBottom
           >
-            Your Cart is Empty
+            {t('description.empty')}
           </Typography>
           <Button
             style={{
               width: "130px",
               backgroundColor: "#1f989e",
               color: "white",
+             
             }}
             component={Link}
             to="/products"
             variant="contained"
+            
           >
-            Go to shop
+            {t('description.goToShop')}
           </Button>
         </Paper>
       )}

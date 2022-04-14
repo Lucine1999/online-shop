@@ -24,7 +24,9 @@ import InputBase from "@mui/material/InputBase";
 import { Link } from "react-router-dom";
 
 
-export default function WishlistProducts() {
+
+export default function WishlistProducts({t}) {
+
   const user = useSelector(selectUser);
   const user_id = user ? user.uid : 0;
   const dispatch = useDispatch();
@@ -52,20 +54,20 @@ export default function WishlistProducts() {
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell style={titleStyle} align="center">
-                Image
+              <TableCell style={titleStyle} align="left">
+              {t('description.image')}
               </TableCell>
-              <TableCell style={titleStyle} align="center">
-                Product
+              <TableCell style={titleStyle} align="left">
+              {t('description.product1')}
               </TableCell>
-              <TableCell style={titleStyle} align="center">
-                Price
+              <TableCell style={titleStyle} align="right">
+              {t('description.price')}
               </TableCell>
-              <TableCell style={titleStyle} align="center">
-                Add
+              <TableCell style={titleStyle} align="right">
+              {t('description.qty')}
               </TableCell>
-              <TableCell style={titleStyle} align="center">
-                Remove
+              <TableCell style={titleStyle} align="right">
+              {t('description.remove')}
               </TableCell>
             </TableRow>
           </TableHead>
@@ -79,13 +81,13 @@ export default function WishlistProducts() {
                   },
                 }}
               >
-                <TableCell component="th" scope="row" align="center">
+                <TableCell component="th" scope="row">
                   <img style={cartImagesStyle} src={row.img} alt="cart-img" />
                 </TableCell>
-                <TableCell component="th" scope="row" align="center">
+                <TableCell component="th" scope="row" >
                   {row.name}
                 </TableCell>
-                <TableCell align="center">
+                <TableCell align="right">
                   {row.price}
                   {row.currency}
                 </TableCell>
@@ -159,11 +161,11 @@ export default function WishlistProducts() {
                         )
                       }
                     >
-                      Add to cart
+                      {t('description.addToCart')}
                     </Button>
                   )}
                 </TableCell>
-                <TableCell align="center">
+                <TableCell align="right">
                   <DeleteIcon
                     style={{
                       color: "#a2959c",
@@ -200,7 +202,7 @@ export default function WishlistProducts() {
             variant="h4"
             gutterBottom
           >
-            Your Wishlist is Empty
+             {t('description.emptyWishlist')}
           </Typography>
           <Button
             style={{
@@ -212,7 +214,7 @@ export default function WishlistProducts() {
             to="/products"
             variant="contained"
           >
-            Go to shop
+            {t('description.goToShop')}
           </Button>
         </Paper>
       )}

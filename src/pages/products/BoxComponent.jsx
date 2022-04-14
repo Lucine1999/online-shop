@@ -34,6 +34,7 @@ function BoxComponent(props) {
                 sx={{
                     margin: "5px 5px 20px 5px",
                     position: "relative",
+                    maxWidth: '360px',
                 }}
             >
                 <CardMedia

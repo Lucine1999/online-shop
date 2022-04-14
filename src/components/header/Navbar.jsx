@@ -21,7 +21,6 @@ import Armenia from "../../assets/flags/armenia.png";
 import {
   AccountCircle,
   Favorite,
-  Search,
   ShoppingCart,
 } from "@mui/icons-material";
 import { Link } from "react-router-dom";
@@ -308,7 +307,7 @@ const Navbar = ({ changeLanguage, t }) => {
             </Menu>
           </Box>
           <Box className="App-header">
-          <Box sx={{ minWidth: 120 }}>
+          <Box sx={{ minWidth: 60 }}>
               <FormControl
                 style={{
                   minWidth: "45px",

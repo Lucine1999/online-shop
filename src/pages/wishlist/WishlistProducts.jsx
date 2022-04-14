@@ -5,7 +5,7 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import {Paper, Typography} from "@mui/material";
+import {Card, Paper, Typography} from "@mui/material";
 import Button from "@mui/material/Button";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useSelector, useDispatch } from "react-redux";
@@ -22,6 +22,8 @@ import RemoveIcon from "@mui/icons-material/Remove";
 import IconButton from "@mui/material/IconButton";
 import InputBase from "@mui/material/InputBase";
 import { Link } from "react-router-dom";
+
+import {Box, CircularProgress} from '@mui/material';
 
 
 
@@ -49,24 +51,26 @@ export default function WishlistProducts({t}) {
   };
 
   return (
-    <TableContainer component={Paper} style={{ marginBottom: "20px" }}>
+
+    <> 
+    {products?.length ?  <TableContainer component={Paper} style={{ marginBottom: "20px" }}>
       {filteredProducts.length > 0 ? (
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell style={titleStyle} align="left">
+              <TableCell style={titleStyle} align="center">
               {t('description.image')}
               </TableCell>
-              <TableCell style={titleStyle} align="left">
+              <TableCell style={titleStyle} align="center">
               {t('description.product1')}
               </TableCell>
-              <TableCell style={titleStyle} align="right">
+              <TableCell style={titleStyle} align="center">
               {t('description.price')}
               </TableCell>
-              <TableCell style={titleStyle} align="right">
+              <TableCell style={titleStyle} align="center">
               {t('description.qty')}
               </TableCell>
-              <TableCell style={titleStyle} align="right">
+              <TableCell style={titleStyle} align="center">
               {t('description.remove')}
               </TableCell>
             </TableRow>
@@ -81,27 +85,27 @@ export default function WishlistProducts({t}) {
                   },
                 }}
               >
-                <TableCell component="th" scope="row">
+                <TableCell component="th" scope="row" align="center">
                   <img style={cartImagesStyle} src={row.img} alt="cart-img" />
                 </TableCell>
-                <TableCell component="th" scope="row" >
+                <TableCell component="th" scope="row" align="center">
                   {row.name}
                 </TableCell>
-                <TableCell align="right">
+                <TableCell align="center">
                   {row.price}
-                  {row.currency}
+                  {t('description.amd')}
                 </TableCell>
-                <TableCell align="right">
+                <TableCell align="center">
                   {row.id in cartItems ? (
                     <>
                       <Paper
-                        style={{ float: "right" }}
                         component="form"
                         sx={{
                           p: "2px 4px",
                           display: "flex",
                           alignItems: "center",
-                          width: 140,
+                          width: 120,
+                          margin: "auto",
                         }}
                       >
                         <IconButton
@@ -127,6 +131,7 @@ export default function WishlistProducts({t}) {
                             pl: "10px",
                             pb: "5px",
                             pt: "5px",
+                            
                           }}
                         />
                         <IconButton
@@ -165,7 +170,7 @@ export default function WishlistProducts({t}) {
                     </Button>
                   )}
                 </TableCell>
-                <TableCell align="right">
+                <TableCell align="center">
                   <DeleteIcon
                     style={{
                       color: "#a2959c",
@@ -194,6 +199,7 @@ export default function WishlistProducts({t}) {
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
+            
           }}
         >
           <Typography
@@ -218,6 +224,10 @@ export default function WishlistProducts({t}) {
           </Button>
         </Paper>
       )}
-    </TableContainer>
+    </TableContainer> : <Box sx={{ display: 'flex', marginBottom: '7%', color: 'grey.500' }}>
+                          <CircularProgress style={{ margin: 'auto'}}  color="inherit"/>
+                        </Box>}
+    </>
+   
   );
 }

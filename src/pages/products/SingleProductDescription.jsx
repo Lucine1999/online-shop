@@ -27,7 +27,7 @@ const SingleProductDescription = ({
         <div className="productPrice-wrapper">
           <span className="price__text">
             {productPrice}
-            <span className="amd_container">{t("description.amd")}.</span>
+            <span className="amd_container">{t("description.amd")}</span>
           </span>
           <div className="product__price-note"></div>
         </div>

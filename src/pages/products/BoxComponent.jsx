@@ -20,6 +20,7 @@ import Button from "@mui/material/Button";
 import Paper from "@mui/material/Paper";
 import InputBase from "@mui/material/InputBase";
 import "./BoxComponent.css"
+import { t } from "i18next";
 
 
 function BoxComponent(props) {
@@ -42,7 +43,6 @@ function BoxComponent(props) {
                     image={obj.img}
                     alt="image does not exist"
                     style={{
-                        objectFit: "contain",
                         backgroundColor: "#e5e5e5",
                     }}
                 />
@@ -62,7 +62,7 @@ function BoxComponent(props) {
                         color="text.secondary"
                         style={{ marginBottom: "10px" }}
                     >
-                        {obj.price + " " + obj.currency}
+                        {obj.price + " " + t("description.amd")}
                     </Typography>
                     <Typography>
                         <IconButton

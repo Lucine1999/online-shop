@@ -17,11 +17,6 @@ function FavoriteCards({t}) {
         {products ? products.map(value => {
           if (value.bestSeller) {
             return <BoxComponent key={value.id} product ={value}/>
-            
-            
-                  
-                 
-
           }
         }) : null}
       </div>

@@ -47,15 +47,14 @@
     "aboutProduct": "Made in Armenia",
     "amd": "AMD",
     "prQty": "Product quantity",
-    "descr": "Product description"
-
-
-
-
-
-
-
-
-
+    "descr": "Product description",
+    "freeShipping": "Free shipping",
+    "discount": "Discount",
+    "support": "Support 24/7",
+    "moneyReturn": "Money Return",
+    "shippingDescr": "Free shipping on all order",
+    "discountDescr": "Flexible discount system",
+    "moneyReturnDescr": "Back guarantee under 5 days",
+    "supportDescr": "Support 24 hours a day"
   }
 }

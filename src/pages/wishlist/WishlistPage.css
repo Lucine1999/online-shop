@@ -24,12 +24,8 @@
     text-decoration: none;
     color: #666;
 }
-.link-style1:hover {
-    color: rgb(221, 10, 10);
+.qty-input input{
+    text-align: center;
 }
-
-
-
-
 
 

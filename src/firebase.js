@@ -25,8 +25,7 @@ const firebaseConfig = {
   projectId: "online-shop-543a4",
   storageBucket: "online-shop-543a4.appspot.com",
   messagingSenderId: "1070224139707",
-  appId: "1:1070224139707:web:f09bc06cfaaa2bf51b109e"
-
+  appId: "1:1070224139707:web:f09bc06cfaaa2bf51b109e",
 };
 
 initializeApp(firebaseConfig);
@@ -48,5 +47,5 @@ export {
   setDoc,
   getDocs,
   updateDoc,
-  where
+  where,
 };

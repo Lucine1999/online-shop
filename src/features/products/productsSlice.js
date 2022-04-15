@@ -136,6 +136,9 @@ export const productsSlice = createSlice({
         state.checkedCategories.splice(currentIndex, 1);
       }
     },
+    removeFromCategories: (state) => {
+      state.checkedCategories.length = 0;
+    },
   },
 });
 
@@ -147,6 +150,7 @@ export const {
   addToWishlist,
   getWishlistItems,
   addToCategories,
+  removeFromCategories,
 } = productsSlice.actions;
 
 export const selectProducts = (state) => state.products.products;

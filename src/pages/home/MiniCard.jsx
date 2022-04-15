@@ -1,7 +1,6 @@
 
 
 function cardModel(img, header, text) {
-    console.log(header);
 
     const miniCartImg={
         objectFit:"contain",

@@ -1,11 +1,12 @@
 import BoxComponent from "./BoxComponent";
 import PaginationRounded from "./Pagination";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   selectProducts,
   selectWishlist,
   selectCart,
   selectCategories,
+  removeFromCategories
 } from "../../features/products/productsSlice";
 import { useContext, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
@@ -32,6 +33,9 @@ function ListItem({t}) {
   const cartItems = useSelector(selectCart);
   const wishlistItems = useSelector(selectWishlist);
 
+  const dispatch = useDispatch();
+
+
   useEffect(() => {
     setPreviusPage(currentPage - 1);
   }, [currentPage]);
@@ -45,6 +49,12 @@ function ListItem({t}) {
       ? setProducts(filterProductList(allProduct, checkCategories))
       : setProducts(allProduct);
   }, [checkCategories]);
+
+  useEffect(() => {
+    dispatch(
+      removeFromCategories()
+    );
+  }, [location.pathname])
 
   return (
     <main className="product-list">

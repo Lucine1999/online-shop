@@ -44,6 +44,9 @@ function BoxComponent(props) {
                     component="img"
                     image={obj.img}
                     alt="image does not exist"
+                    style={{
+                        backgroundColor: '#e5e5e5'
+                    }}
                 />
                 <CardContent
                     style={{ textAlign: "center", paddingBottom: "0px" }}

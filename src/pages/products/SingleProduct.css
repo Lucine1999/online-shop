@@ -137,13 +137,14 @@
 .info__detail-item-space{
     height: 1px;
     flex: 1 1 auto;
-    margin: 0 9px;
-    border-bottom: 1px dotted #bbbec2;
+    margin: 0;
+    border-bottom: 1px dotted #0000007a;
 }
 
 .info__detail-item-value{
     flex: 0 0 auto;
     color: #1a2433;
+    font-weight: 600;
     max-width: 50%;
 }
 

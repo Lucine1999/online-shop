@@ -22,8 +22,6 @@ const SingleProductDescription = ({
     <div className="singleProductDescription">
       <form action="">
         <h1 className="singleProductTitle">{productName}</h1>
-        <p className="singleProductSubtitle">{t("description.aboutProduct")}</p>
-        <span className="product_avelability">{t("description.prQty")}</span>
         <div className="productPrice-wrapper">
           <span className="price__text">
             {productPrice}
@@ -111,9 +109,9 @@ const SingleProductDescription = ({
         <div className="info__tabs-body">
           <div className="info__detail-list">
             <div className="info__detail-item">
-              <div className="info__detail-item-title">prop</div>
+              <div className="info__detail-item-title">{t("description.madeIn")}</div>
               <div className="info__detail-item-space"></div>
-              <div className="info__detail-item-value">prop</div>
+              <div className="info__detail-item-value">{t("description.inArmenia")}</div>
             </div>
           </div>
         </div>

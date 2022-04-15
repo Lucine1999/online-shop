@@ -35,7 +35,7 @@ function BoxComponent(props) {
                 sx={{
                     margin: "5px 5px 20px 5px",
                     position: "relative",
-                    maxWidth: '360px',
+                    maxWidth: '260px',
                 }}
             >
                 <CardMedia
@@ -53,7 +53,7 @@ function BoxComponent(props) {
                     <Typography
                         component={Link}
                         to={`/products/${obj.id}`}
-                        style={{ textDecoration: "none",color: "dimgrey" }}
+                        style={{ textDecoration: "none",color: "#202020c2" }}
                         variant="h6"
                     >
                         {obj.name}
@@ -118,7 +118,7 @@ function BoxComponent(props) {
                                     style={{
                                         width: "100%",
                                         height: "45px",
-                                        border: "2px solid #bcb4b0",
+                                        border: "2px solid #202020c2",
                                         borderRadius: "5px",
                                         boxShadow:"none"
                                     }}

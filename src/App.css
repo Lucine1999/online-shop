@@ -1,7 +1,7 @@
-html,
+/* html,
 body {
     height: 100%;
-}
+} */
 
 * {
     margin: 0;
@@ -126,6 +126,7 @@ li {
     display: flex;
     flex-direction: column;
     margin: auto;
+    margin-bottom:20px;
 }
 
 .product-list-page {

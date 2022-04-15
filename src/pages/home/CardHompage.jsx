@@ -4,13 +4,8 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActions } from "@mui/material";
-// import { Button, CardActionArea} from "@mui/material";
-// import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-// import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
-// import FavoriteIcon from '@mui/icons-material/Favorite';
 
 function CardHomePage(obj, key) {
-
     const buyButton = {
         backgroundColor: "#1f989e",
         color: "white",
@@ -25,7 +20,6 @@ function CardHomePage(obj, key) {
             key={key}
             sx={{ width: 370, margin: "auto", marginBottom: "10px" }}
         >
-            {/* <CardActionArea> */}
             <CardMedia
                 component="img"
                 image={obj.img}

@@ -10,7 +10,7 @@ import { Button } from "@mui/material";
 export default function CartTotal() {
     const style = {
         width: "100%",
-        marginBottom:"20px"
+        marginBottom: "20px",
     };
     return (
         <div style={{ display: "flex", justifyContent: "flex-end" }}>

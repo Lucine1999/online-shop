@@ -27,19 +27,19 @@
     display: flex;
     justify-content: space-between;
 }
-.align-right{
+.align-right {
     text-align: right;
 }
-.checkout-btn{
+.checkout-btn {
     width: 100%;
     border-color: #212121;
     background-color: #212121 !important;
     color: #fff;
     height: 40px;
 }
-.checkout-btn:hover{
+.checkout-btn:hover {
     background-color: #1f989e !important;
 }
-.qty-input input{
+.qty-input input {
     text-align: center;
 }

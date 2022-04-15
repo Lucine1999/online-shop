@@ -5,14 +5,13 @@ import { Container } from "@mui/material";
 
 import "./WishlistPage.css";
 
-export default function WishlistPage({t}) {
+export default function WishlistPage({ t }) {
     return (
         <>
-            <WishlistHeader t={t}/>
+            <WishlistHeader t={t} />
             <Container style={{ marginTop: "80px", marginBottom: "20px" }}>
-                <WishlistProducts t = {t}/>
+                <WishlistProducts t={t} />
             </Container>
         </>
     );
 }
-

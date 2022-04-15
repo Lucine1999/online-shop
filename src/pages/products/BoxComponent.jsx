@@ -14,14 +14,13 @@ import {
 } from "../../features/products/productsSlice";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
-import IconButton from '@mui/material/IconButton';
+import IconButton from "@mui/material/IconButton";
 import CardActions from "@mui/material/CardActions";
 import Button from "@mui/material/Button";
 import Paper from "@mui/material/Paper";
 import InputBase from "@mui/material/InputBase";
 import { t } from "i18next";
-import "./BoxComponent.css"
-
+import "./BoxComponent.css";
 
 function BoxComponent(props) {
     let obj = props.product;
@@ -35,7 +34,7 @@ function BoxComponent(props) {
                 sx={{
                     margin: "5px 5px 20px 5px",
                     position: "relative",
-                    maxWidth: '260px',
+                    maxWidth: "260px",
                 }}
             >
                 <CardMedia
@@ -45,7 +44,7 @@ function BoxComponent(props) {
                     image={obj.img}
                     alt="image does not exist"
                     style={{
-                        backgroundColor: '#e5e5e5'
+                        backgroundColor: "#e5e5e5",
                     }}
                 />
                 <CardContent
@@ -54,7 +53,7 @@ function BoxComponent(props) {
                     <Typography
                         component={Link}
                         to={`/products/${obj.id}`}
-                        style={{ textDecoration: "none",color: "#202020c2" }}
+                        style={{ textDecoration: "none", color: "#202020c2" }}
                         variant="h6"
                     >
                         {obj.name}
@@ -94,7 +93,7 @@ function BoxComponent(props) {
                         </IconButton>
                     </Typography>
                 </CardContent>
-                <CardActions style={{padding:"20px"}}>
+                <CardActions style={{ padding: "20px" }}>
                     {props.cartItems ? (
                         !props.cartItems.hasOwnProperty(`${obj.id}`) ? (
                             <Button
@@ -108,7 +107,7 @@ function BoxComponent(props) {
                                     )
                                 }
                             >
-                                {props.t('description.addToCart')}
+                                {props.t("description.addToCart")}
                                 <ShoppingCartOutlinedIcon
                                     style={{ marginLeft: "5px", width: "18px" }}
                                 />
@@ -121,7 +120,7 @@ function BoxComponent(props) {
                                         height: "45px",
                                         border: "2px solid #202020c2",
                                         borderRadius: "5px",
-                                        boxShadow:"none"
+                                        boxShadow: "none",
                                     }}
                                     component="form"
                                     sx={{

@@ -19,8 +19,8 @@ import CardActions from "@mui/material/CardActions";
 import Button from "@mui/material/Button";
 import Paper from "@mui/material/Paper";
 import InputBase from "@mui/material/InputBase";
-import "./BoxComponent.css"
 import { t } from "i18next";
+import "./BoxComponent.css"
 
 
 function BoxComponent(props) {
@@ -39,13 +39,11 @@ function BoxComponent(props) {
                 }}
             >
                 <CardMedia
+                    className="productPhoto"
                     height="200"
                     component="img"
                     image={obj.img}
                     alt="image does not exist"
-                    style={{
-                        backgroundColor: "#e5e5e5",
-                    }}
                 />
                 <CardContent
                     style={{ textAlign: "center", paddingBottom: "0px" }}

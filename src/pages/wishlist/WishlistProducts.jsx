@@ -5,7 +5,7 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import {Card, Paper, Typography} from "@mui/material";
+import {Paper, Typography} from "@mui/material";
 import Button from "@mui/material/Button";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useSelector, useDispatch } from "react-redux";

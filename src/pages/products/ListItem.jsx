@@ -1,86 +1,81 @@
-import BoxComponent from "./BoxComponent";
-import PaginationRounded from "./Pagination";
-import { useDispatch, useSelector } from "react-redux";
+import BoxComponent from './BoxComponent';
+import PaginationRounded from './Pagination';
+import { useDispatch, useSelector } from 'react-redux';
 import {
-    selectProducts,
-    selectWishlist,
-    selectCart,
-    selectCategories,
-    removeFromCategories,
-} from "../../features/products/productsSlice";
-import { useContext, useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
-import { selectUser } from "../../features/users/usersSlice";
-import filterProductList from "./filterByType";
-import CurrentPageContext from "../context";
+  selectProducts,
+  selectWishlist,
+  selectCart,
+  selectCategories,
+  removeFromCategories
+} from '../../features/products/productsSlice';
+import { useContext, useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import { selectUser } from '../../features/users/usersSlice';
+import filterProductList from './filterByType';
+import CurrentPageContext from '../context';
 
 function ListItem({ t }) {
-    const location = useLocation();
-    let allProduct = useSelector(selectProducts);
-    let [products, setProducts] = useState([]);
-    const [previusPage, setPreviusPage] = useState(
-        parseInt(location.search?.split("=")[1] - 1 || 0)
-    );
-    const { currentPage, setCurrentPage } = useContext(CurrentPageContext);
+  const location = useLocation();
+  let allProduct = useSelector(selectProducts);
+  let [products, setProducts] = useState([]);
+  const [previusPage, setPreviusPage] = useState(parseInt(location.search?.split('=')[1] - 1 || 0));
+  const { currentPage, setCurrentPage } = useContext(CurrentPageContext);
 
-    const checkCategories = useSelector(selectCategories);
+  const checkCategories = useSelector(selectCategories);
 
-    const productCount = 8;
+  const productCount = 8;
 
-    const user = useSelector(selectUser);
-    const user_id = user ? user.uid : 0;
+  const user = useSelector(selectUser);
+  const user_id = user ? user.uid : 0;
 
-    const cartItems = useSelector(selectCart);
-    const wishlistItems = useSelector(selectWishlist);
+  const cartItems = useSelector(selectCart);
+  const wishlistItems = useSelector(selectWishlist);
 
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-    useEffect(() => {
-        setPreviusPage(currentPage - 1);
-    }, [currentPage]);
+  useEffect(() => {
+    setPreviusPage(currentPage - 1);
+  }, [currentPage]);
 
-    useEffect(() => {
-        setProducts(allProduct);
-        checkCategories?.length
-            ? setProducts(filterProductList(allProduct, checkCategories))
-            : setProducts(allProduct);
-    }, [allProduct, checkCategories]);
+  useEffect(() => {
+    setProducts(allProduct);
+    checkCategories?.length
+      ? setProducts(filterProductList(allProduct, checkCategories))
+      : setProducts(allProduct);
+  }, [allProduct, checkCategories]);
 
-    useEffect(() => {
-        dispatch(removeFromCategories());
-    }, [location.pathname]);
+  useEffect(() => {
+    dispatch(removeFromCategories());
+  }, [location.pathname]);
 
-    return (
-        <main className="product-list">
-            <div className="items">
-                {products
-                    ? products.map((value, idx) => {
-                          if (
-                              idx < currentPage * productCount &&
-                              idx >= previusPage * productCount
-                          ) {
-                              return (
-                                  <BoxComponent
-                                      key={value.id}
-                                      userId={user_id}
-                                      cartItems={cartItems}
-                                      wishlistItems={wishlistItems}
-                                      product={value}
-                                      t={t}
-                                  />
-                              );
-                          }
-                      })
-                    : null}
-            </div>
-            <PaginationRounded
-                page={products}
-                productCount={productCount}
-                setCurrentPage={setCurrentPage}
-                currentPage={currentPage}
-            />
-        </main>
-    );
+  return (
+    <main className="product-list">
+      <div className="items">
+        {products
+          ? products.map((value, idx) => {
+              if (idx < currentPage * productCount && idx >= previusPage * productCount) {
+                return (
+                  <BoxComponent
+                    key={value.id}
+                    userId={user_id}
+                    cartItems={cartItems}
+                    wishlistItems={wishlistItems}
+                    product={value}
+                    t={t}
+                  />
+                );
+              }
+            })
+          : null}
+      </div>
+      <PaginationRounded
+        page={products}
+        productCount={productCount}
+        setCurrentPage={setCurrentPage}
+        currentPage={currentPage}
+      />
+    </main>
+  );
 }
 
 export default ListItem;

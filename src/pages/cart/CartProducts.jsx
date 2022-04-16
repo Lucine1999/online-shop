@@ -24,7 +24,7 @@ import {
   selectProducts,
   selectCart,
   addToCart,
-  removeFromCart,
+  removeFromCart
 } from '../../features/products/productsSlice';
 
 export default function CartProducts({ t }) {
@@ -42,12 +42,12 @@ export default function CartProducts({ t }) {
 
   const titleStyle = {
     fontWeight: 'bold',
-    fontSize: '16px',
+    fontSize: '16px'
   };
   const cartImagesStyle = {
     width: '80px',
     height: '80px',
-    objectFit: 'contain',
+    objectFit: 'contain'
   };
 
   return (
@@ -86,16 +86,11 @@ export default function CartProducts({ t }) {
                         key={row.id}
                         sx={{
                           '&:last-child td, &:last-child th': {
-                            border: 0,
-                          },
-                        }}
-                      >
+                            border: 0
+                          }
+                        }}>
                         <TableCell component="th" scope="row" align="center">
-                          <img
-                            style={cartImagesStyle}
-                            src={row.img}
-                            alt="cart-img"
-                          />
+                          <img style={cartImagesStyle} src={row.img} alt="cart-img" />
                         </TableCell>
                         <TableCell component="th" scope="row" align="center">
                           {row.name}
@@ -112,9 +107,8 @@ export default function CartProducts({ t }) {
                               display: 'flex',
                               alignItems: 'center',
                               width: 120,
-                              margin: 'auto',
-                            }}
-                          >
+                              margin: 'auto'
+                            }}>
                             <IconButton
                               sx={{ p: '5px' }}
                               onClick={() =>
@@ -122,14 +116,13 @@ export default function CartProducts({ t }) {
                                   addToCart({
                                     productId: `${row.id}`,
                                     userId: `${user_id}`,
-                                    amount: -1,
+                                    amount: -1
                                   })
                                 )
-                              }
-                            >
+                              }>
                               <RemoveIcon
                                 style={{
-                                  width: '20px',
+                                  width: '20px'
                                 }}
                               />
                             </IconButton>
@@ -141,7 +134,7 @@ export default function CartProducts({ t }) {
                                 pr: '10px',
                                 pl: '10px',
                                 pb: '5px',
-                                pt: '5px',
+                                pt: '5px'
                               }}
                             />
                             <IconButton
@@ -151,14 +144,13 @@ export default function CartProducts({ t }) {
                                   addToCart({
                                     productId: `${row.id}`,
                                     userId: `${user_id}`,
-                                    amount: 1,
+                                    amount: 1
                                   })
                                 )
-                              }
-                            >
+                              }>
                               <AddIcon
                                 style={{
-                                  width: '20px',
+                                  width: '20px'
                                 }}
                               />
                             </IconButton>
@@ -172,13 +164,13 @@ export default function CartProducts({ t }) {
                           <DeleteIcon
                             style={{
                               color: '#a2959c',
-                              cursor: 'pointer',
+                              cursor: 'pointer'
                             }}
                             onClick={() =>
                               dispatch(
                                 removeFromCart({
                                   productId: `${row.id}`,
-                                  userId: `${user_id}`,
+                                  userId: `${user_id}`
                                 })
                               )
                             }
@@ -189,7 +181,7 @@ export default function CartProducts({ t }) {
                       dispatch(
                         removeFromCart({
                           productId: `${row.id}`,
-                          userId: `${user_id}`,
+                          userId: `${user_id}`
                         })
                       )
                     )
@@ -205,27 +197,24 @@ export default function CartProducts({ t }) {
                 flexDirection: 'column',
                 justifyContent: 'center',
                 alignItems: 'center',
-                boxShadow: 'none',
-              }}
-            >
+                boxShadow: 'none'
+              }}>
               <Typography
                 style={{ margin: '0', padding: '20px' }}
                 align="center"
                 variant="h4"
-                gutterBottom
-              >
+                gutterBottom>
                 {t('description.empty')}
               </Typography>
               <Button
                 style={{
                   width: '130px',
                   backgroundColor: '#1f989e',
-                  color: 'white',
+                  color: 'white'
                 }}
                 component={Link}
                 to="/products"
-                variant="contained"
-              >
+                variant="contained">
                 {t('description.goToShop')}
               </Button>
             </Paper>
@@ -236,9 +225,8 @@ export default function CartProducts({ t }) {
           sx={{
             display: 'flex',
             marginBottom: '7%',
-            color: 'grey.500',
-          }}
-        >
+            color: 'grey.500'
+          }}>
           <CircularProgress style={{ margin: 'auto' }} color="inherit" />
         </Box>
       )}

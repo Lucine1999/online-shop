@@ -8,10 +8,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import { Link } from 'react-router-dom';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import {
-  addToWishlist,
-  addToCart,
-} from '../../features/products/productsSlice';
+import { addToWishlist, addToCart } from '../../features/products/productsSlice';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import IconButton from '@mui/material/IconButton';
@@ -33,9 +30,8 @@ function BoxComponent(props) {
         key={obj.id}
         sx={{
           margin: '5px 5px 20px 5px',
-          position: 'relative',
-        }}
-      >
+          position: 'relative'
+        }}>
         <CardMedia
           className="productPhoto"
           height="200"
@@ -43,7 +39,7 @@ function BoxComponent(props) {
           image={obj.img}
           alt="image does not exist"
           style={{
-            backgroundColor: '#e5e5e5',
+            backgroundColor: '#e5e5e5'
           }}
         />
         <CardContent style={{ textAlign: 'center', paddingBottom: '0px' }}>
@@ -51,15 +47,10 @@ function BoxComponent(props) {
             component={Link}
             to={`/products/${obj.id}`}
             style={{ textDecoration: 'none', color: '#202020c2' }}
-            variant="h6"
-          >
+            variant="h6">
             {obj.name}
           </Typography>
-          <Typography
-            variant="body2"
-            color="text.secondary"
-            style={{ marginBottom: '10px' }}
-          >
+          <Typography variant="body2" color="text.secondary" style={{ marginBottom: '10px' }}>
             {obj.price + ' ' + t('description.amd')}
           </Typography>
           <Typography>
@@ -69,7 +60,7 @@ function BoxComponent(props) {
                 dispatch(
                   addToWishlist({
                     productId: `${obj.id}`,
-                    userId: `${props.userId}`,
+                    userId: `${props.userId}`
                   })
                 )
               }
@@ -77,9 +68,8 @@ function BoxComponent(props) {
                 position: 'absolute',
                 top: '5px',
                 right: '5px',
-                padding: '0',
-              }}
-            >
+                padding: '0'
+              }}>
               {props.wishlistItems ? (
                 props.wishlistItems.includes(`${obj.id}`) ? (
                   <FavoriteIcon />
@@ -92,25 +82,19 @@ function BoxComponent(props) {
         </CardContent>
         <CardActions style={{ padding: '20px' }}>
           {props.cartItems ? (
-            !Object.prototype.hasOwnProperty.call(
-              props.cartItems,
-              `${obj.id}`
-            ) ? (
+            !Object.prototype.hasOwnProperty.call(props.cartItems, `${obj.id}`) ? (
               <Button
                 className="add-to-cart-shop-page"
                 onClick={() =>
                   dispatch(
                     addToCart({
                       productId: `${obj.id}`,
-                      userId: `${props.userId}`,
+                      userId: `${props.userId}`
                     })
                   )
-                }
-              >
+                }>
                 {props.t('description.addToCart')}
-                <ShoppingCartOutlinedIcon
-                  style={{ marginLeft: '5px', width: '18px' }}
-                />
+                <ShoppingCartOutlinedIcon style={{ marginLeft: '5px', width: '18px' }} />
               </Button>
             ) : (
               <>
@@ -120,16 +104,15 @@ function BoxComponent(props) {
                     height: '45px',
                     border: '2px solid #202020c2',
                     borderRadius: '5px',
-                    boxShadow: 'none',
+                    boxShadow: 'none'
                   }}
                   component="form"
                   sx={{
                     p: '2px 4px',
                     display: 'flex',
                     alignItems: 'center',
-                    width: 140,
-                  }}
-                >
+                    width: 140
+                  }}>
                   <IconButton
                     sx={{ p: '5px' }}
                     onClick={() =>
@@ -137,11 +120,10 @@ function BoxComponent(props) {
                         addToCart({
                           productId: `${obj.id}`,
                           userId: `${props.userId}`,
-                          amount: -1,
+                          amount: -1
                         })
                       )
-                    }
-                  >
+                    }>
                     <RemoveIcon style={{ width: '20px' }} />
                   </IconButton>
                   <InputBase
@@ -152,7 +134,7 @@ function BoxComponent(props) {
                       pr: '10px',
                       pl: '10px',
                       pb: '5px',
-                      pt: '5px',
+                      pt: '5px'
                     }}
                   />
                   <IconButton
@@ -162,11 +144,10 @@ function BoxComponent(props) {
                         addToCart({
                           productId: `${obj.id}`,
                           userId: `${props.userId}`,
-                          amount: 1,
+                          amount: 1
                         })
                       )
-                    }
-                  >
+                    }>
                     <AddIcon style={{ width: '20px' }} />
                   </IconButton>
                 </Paper>

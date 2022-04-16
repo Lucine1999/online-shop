@@ -14,9 +14,13 @@ import NotFound from './pages/notFound/NotFound';
 
 import { useDispatch } from 'react-redux';
 import { login, logout } from './features/users/usersSlice';
-import { getProducts } from './features/products/productsSlice';
+import {
+  getProducts,
+  getCategories,
+  getWishlistItems,
+  getCartItems
+} from './features/products/productsSlice';
 import { auth, onAuthStateChanged, db, collection, getDocs } from './firebase';
-import { getWishlistItems, getCartItems } from './features/products/productsSlice';
 
 import './App.css';
 
@@ -30,6 +34,7 @@ function App() {
   const dispatch = useDispatch();
 
   const productsCollectionRef = collection(db, 'products');
+  const categoriesCollectionRef = collection(db, 'categories');
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -38,6 +43,21 @@ function App() {
         dispatch(
           getProducts(
             products.docs.map((doc) => ({
+              ...doc.data(),
+              id: doc.id
+            }))
+          )
+        );
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    getDocs(categoriesCollectionRef)
+      .then((category) => {
+        dispatch(
+          getCategories(
+            category.docs.map((doc) => ({
               ...doc.data(),
               id: doc.id
             }))

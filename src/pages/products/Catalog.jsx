@@ -5,55 +5,44 @@ import Checkbox from '@mui/material/Checkbox';
 import ListSubheader from '@mui/material/ListSubheader';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import { useEffect } from 'react';
-import { addToCategories } from '../../features/products/productsSlice';
-import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
+import { selectCategories } from '../../features/products/productsSlice';
+import { useSelector } from 'react-redux';
 
 function Catalog({ categoryId, setCurrentPage, t }) {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    if (categoryId) {
-      const categoriesArr = categoryId.split('_');
-      categoriesArr.forEach((category) => {
-        dispatch(addToCategories({ categoryId: category }));
-      });
-    }
-  }, [categoryId]);
-
+  const selectedCategories = categoryId ? categoryId.split('_') : [];
+  const allCategories = useSelector(selectCategories);
+  console.log('allCategories', allCategories);
   return (
     <List sx={{ width: '100%', maxWidth: 320, bgcolor: 'background.paper' }}>
       {<ListSubheader>{t('description.type')}</ListSubheader>}
-      {[
-        'clothes-ghZIRUGI1PStE2tPsbn6',
-        'shoes-PgwYYE1GyhJQ2VOCajX8',
-        'baskets-iopRXmVP1wKHzQDQW2G1',
-        'toys-wSsbhhPrxgEGFfRXEO1r'
-      ].map((value) => {
-        //const labelId = `checkbox-list-label-${value}`;
-
+      {allCategories.map((value) => {
         return (
-          <ListItem key={value} disablePadding>
+          <ListItem key={value.id} disablePadding>
             <FormGroup>
               <FormControlLabel
                 control={
                   <Checkbox
+                    checked={selectedCategories.includes(value.id)}
                     onChange={() => {
-                      navigate('/products/category/' + value.split('-')[1]);
+                      let currentIndex = selectedCategories.indexOf(value.id);
+
+                      if (currentIndex === -1) {
+                        selectedCategories.push(value.id);
+                      } else {
+                        selectedCategories.splice(currentIndex, 1);
+                      }
+                      navigate(
+                        selectedCategories?.length
+                          ? '/products/category/' + selectedCategories.join('_')
+                          : '/products'
+                      );
                       setCurrentPage(1);
                     }}
-                    onClick={() =>
-                      dispatch(
-                        addToCategories({
-                          categoryId: `${categoryId}`
-                        })
-                      )
-                    }
                   />
                 }
-                label={t(`description.${value.split('-')[0]}`)}
+                label={t(`description.${value.translate_key}`)}
               />
             </FormGroup>
           </ListItem>

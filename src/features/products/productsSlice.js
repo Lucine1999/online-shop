@@ -4,6 +4,7 @@ export const productsSlice = createSlice({
   name: 'products',
   initialState: {
     products: [],
+    categories: [],
     cartItems: {},
     wishlistItems: [],
     checkedCategories: []
@@ -11,6 +12,9 @@ export const productsSlice = createSlice({
   reducers: {
     getProducts: (state, action) => {
       state.products = action.payload;
+    },
+    getCategories: (state, action) => {
+      state.categories = action.payload;
     },
     addToCart: (state, action) => {
       let cartProducts, cartProducts_str;
@@ -142,6 +146,7 @@ export const productsSlice = createSlice({
 
 export const {
   getProducts,
+  getCategories,
   addToCart,
   getCartItems,
   removeFromCart,
@@ -154,6 +159,7 @@ export const {
 export const selectProducts = (state) => state.products.products;
 export const selectCart = (state) => state.products.cartItems;
 export const selectWishlist = (state) => state.products.wishlistItems;
-export const selectCategories = (state) => state.products.checkedCategories;
+export const selectCheckedCategories = (state) => state.products.checkedCategories;
+export const selectCategories = (state) => state.products.categories;
 
 export default productsSlice.reducer;

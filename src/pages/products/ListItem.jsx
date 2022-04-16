@@ -5,7 +5,7 @@ import {
   selectProducts,
   selectWishlist,
   selectCart,
-  selectCategories,
+  selectCheckedCategories,
   removeFromCategories
 } from '../../features/products/productsSlice';
 import { useContext, useEffect, useState } from 'react';
@@ -24,7 +24,7 @@ function ListItem({ categoryId, t }) {
   );
   const { currentPage, setCurrentPage } = useContext(CurrentPageContext);
 
-  const checkCategories = useSelector(selectCategories);
+  const checkCategories = useSelector(selectCheckedCategories);
 
   const productCount = 8;
 

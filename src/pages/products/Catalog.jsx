@@ -5,13 +5,23 @@ import Checkbox from '@mui/material/Checkbox';
 import ListSubheader from '@mui/material/ListSubheader';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
+import { useEffect } from 'react';
 import { addToCategories } from '../../features/products/productsSlice';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
 
-function Catalog({ setCurrentPage, t }) {
+function Catalog({ categoryId, setCurrentPage, t }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (categoryId) {
+      const categoriesArr = categoryId.split('_');
+      categoriesArr.forEach((category) => {
+        dispatch(addToCategories({ categoryId: category }));
+      });
+    }
+  }, [categoryId]);
 
   return (
     <List sx={{ width: '100%', maxWidth: 320, bgcolor: 'background.paper' }}>
@@ -31,13 +41,13 @@ function Catalog({ setCurrentPage, t }) {
                 control={
                   <Checkbox
                     onChange={() => {
-                      navigate('/products');
+                      navigate('/products/category/' + value.split('-')[1]);
                       setCurrentPage(1);
                     }}
                     onClick={() =>
                       dispatch(
                         addToCategories({
-                          categoryId: `${value.split('-')[1]}`
+                          categoryId: `${categoryId}`
                         })
                       )
                     }

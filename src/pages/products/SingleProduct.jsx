@@ -36,7 +36,9 @@ const SingleProduct = ({ t }) => {
               />
             </>
           ) : (
-            <div>Loading..</div>
+            <div>
+              <h1>{`Product doesn't exists`}</h1>
+            </div>
           )}
         </div>
       </div>

@@ -31,7 +31,7 @@ export const productsSlice = createSlice({
         cartProducts = JSON.parse(localStorage.getItem('cartProducts'));
 
         if (userId in cartProducts) {
-          if (cartProducts[userId].hasOwnProperty(productId)) {
+          if (Object.prototype.hasOwnProperty.call(cartProducts[userId], productId)) {
             if (cartProducts[userId][productId] + amount <= 0) {
               delete cartProducts[userId][productId];
               // cartProducts[userId][productId] = 0;

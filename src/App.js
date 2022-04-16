@@ -76,10 +76,10 @@ function App() {
   return (
     <>
       <Navbar changeLanguage={changeLanguage} t={t} />
-
       <Routes>
         <Route path="/" element={<HomePageContentAndFooter t={t} />} />
         <Route path="/products" element={<ProductListPage t={t} />} />
+        <Route path="/products/category/:categoryId" element={<ProductListPage t={t} />} />
         <Route path="/products/:product" element={<SingleProduct t={t} />} />
         <Route path={'/login'} element={<LogIn t={t} />} />
         <Route path="/signup" element={<SignUp t={t} />} />

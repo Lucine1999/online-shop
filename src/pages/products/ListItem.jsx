@@ -13,8 +13,9 @@ import { useLocation } from 'react-router-dom';
 import { selectUser } from '../../features/users/usersSlice';
 import filterProductList from './filterByType';
 import CurrentPageContext from '../context';
+import { Box, CircularProgress } from '@mui/material';
 
-function ListItem({ t }) {
+function ListItem({ categoryId, t }) {
   const location = useLocation();
   let allProduct = useSelector(selectProducts);
   let [products, setProducts] = useState([]);
@@ -52,9 +53,10 @@ function ListItem({ t }) {
 
   return (
     <main className="product-list">
-      <div className="items">
-        {products
-          ? products.map((value, idx) => {
+      {products?.length ? (
+        <>
+          <div className="items">
+            {products.map((value, idx) => {
               if (idx < currentPage * productCount && idx >= previousPage * productCount) {
                 return (
                   <BoxComponent
@@ -67,15 +69,31 @@ function ListItem({ t }) {
                   />
                 );
               }
-            })
-          : null}
-      </div>
-      <PaginationRounded
-        page={products}
-        productCount={productCount}
-        setCurrentPage={setCurrentPage}
-        currentPage={currentPage}
-      />
+            })}
+          </div>
+          <PaginationRounded
+            page={products}
+            productCount={productCount}
+            setCurrentPage={setCurrentPage}
+            currentPage={currentPage}
+            categoryId={categoryId}
+          />
+        </>
+      ) : (
+        <Box
+          sx={{
+            display: 'flex',
+            color: 'grey.500',
+            margin: 'auto',
+            marginTop: '100px',
+            marginBottom: '100px'
+          }}>
+          <CircularProgress
+            style={{ width: '70px', height: '70px', margin: 'auto' }}
+            color="inherit"
+          />
+        </Box>
+      )}
     </main>
   );
 }

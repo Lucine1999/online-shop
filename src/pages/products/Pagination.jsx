@@ -4,7 +4,13 @@ import Stack from '@mui/material/Stack';
 import { PaginationItem } from '@mui/material';
 import { Link } from 'react-router-dom';
 
-export default function PaginationRounded({ page, productCount, setCurrentPage, currentPage }) {
+export default function PaginationRounded({
+  page,
+  productCount,
+  setCurrentPage,
+  currentPage,
+  categoryId
+}) {
   let pageCount = Math.ceil(page.length / productCount);
 
   return (
@@ -20,7 +26,11 @@ export default function PaginationRounded({ page, productCount, setCurrentPage, 
           return (
             <PaginationItem
               component={Link}
-              to={`/products${item.page === 1 ? '' : `?page=${item.page}`}`}
+              to={
+                categoryId
+                  ? `/products/category/${categoryId}?page=${item.page}`
+                  : `/products?page=${item.page}`
+              }
               {...item}
             />
           );

@@ -227,7 +227,10 @@ export default function CartProducts({ t }) {
             marginBottom: '7%',
             color: 'grey.500'
           }}>
-          <CircularProgress style={{ margin: 'auto' }} color="inherit" />
+          <CircularProgress
+            style={{ width: '70px', height: '70px', margin: 'auto' }}
+            color="inherit"
+          />
         </Box>
       )}
     </>

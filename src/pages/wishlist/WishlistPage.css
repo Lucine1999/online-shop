@@ -1,0 +1,31 @@
+.wishlist-header-section {
+    height: 200px;
+    width: 100%;
+    background-color: #e8e8e8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.wishlist-header-section h1 {
+    font-size: 32px;
+    font-weight: 600;
+    font-family: "Montserrat", sans-serif;
+    color: #2e2e2e;
+    line-height: 1;
+    margin-bottom: 12px;
+}
+.wishlist-header-section p {
+    font-weight: 500;
+    color: #1a1a1a;
+}
+.link-style1 {
+    text-decoration: none;
+    color: #666;
+}
+.qty-input input {
+    text-align: center;
+}
+/* .no-wishlist-items-style .css-11xur9t-MuiPaper-root-MuiTableContainer-root{
+    box-shadow: none;
+} */

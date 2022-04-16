@@ -15,9 +15,9 @@ body {
     height: 100%;
 }
 
-main {
+/* main {
     flex: 1 0 auto;
-}
+} */
 
 body {
     font: 400 14px/22px "Open Sans", Arial, Helvetica, sans-serif;

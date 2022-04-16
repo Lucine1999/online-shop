@@ -18,7 +18,9 @@ function ListItem({ t }) {
   const location = useLocation();
   let allProduct = useSelector(selectProducts);
   let [products, setProducts] = useState([]);
-  const [previusPage, setPreviusPage] = useState(parseInt(location.search?.split('=')[1] - 1 || 0));
+  const [previousPage, setPreviousPage] = useState(
+    parseInt(location.search?.split('=')[1] - 1 || 0)
+  );
   const { currentPage, setCurrentPage } = useContext(CurrentPageContext);
 
   const checkCategories = useSelector(selectCategories);
@@ -34,7 +36,7 @@ function ListItem({ t }) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    setPreviusPage(currentPage - 1);
+    setPreviousPage(currentPage - 1);
   }, [currentPage]);
 
   useEffect(() => {
@@ -53,7 +55,7 @@ function ListItem({ t }) {
       <div className="items">
         {products
           ? products.map((value, idx) => {
-              if (idx < currentPage * productCount && idx >= previusPage * productCount) {
+              if (idx < currentPage * productCount && idx >= previousPage * productCount) {
                 return (
                   <BoxComponent
                     key={value.id}

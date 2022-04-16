@@ -1,5 +1,4 @@
 import ListItem from './ListItem';
-// import FilterByCost from '../components/main-product-List/filterByCost';
 import Catalog from './Catalog';
 import CurrentPageContext from '../context';
 import { useState } from 'react';
@@ -13,7 +12,6 @@ function ProductListPage({ t }) {
     <CurrentPageContext.Provider value={{ currentPage, setCurrentPage }}>
       <main className="product-list-page">
         <div>
-          {/* <FilterByCost /> */}
           <Catalog setCurrentPage={setCurrentPage} t={t} />
         </div>
         <ListItem t={t} />
